@@ -9,17 +9,17 @@ import java.util.List;
 
 /**
  * Created by zwb
- * Description
- * Date 16/4/22.
+ * Description 万能适配器
+ * Date 16/4/24.
  */
-public abstract class MyBaseAdapter<T> extends BaseAdapter {
+public abstract class CommonAdapter<T> extends BaseAdapter {
+    private Context mContext;
     private List<T> ts;
     private int layoutId;
-    private Context context;
-    public MyBaseAdapter(int layoutId,Context context,List<T> ts){
-        this.layoutId = layoutId;
+    public CommonAdapter(Context context,List<T> ts,int layoutId){
+        mContext = context;
         this.ts = ts;
-        this.context = context;
+        this.layoutId = layoutId;
     }
     @Override
     public int getCount() {
@@ -38,9 +38,9 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder = ViewHolder.getHolder(context,i,view,viewGroup,layoutId);
+        ViewHolder holder = ViewHolder.getHolder(layoutId,mContext,viewGroup,view);
         convert(holder,ts.get(i));
-        return holder.getConverView();
+        return holder.getConvertView();
     }
     public abstract void convert(ViewHolder holder,T t);
 }
