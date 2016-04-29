@@ -14,8 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * ScrollerView 与listView 的滑动冲突
@@ -23,9 +23,9 @@ import butterknife.InjectView;
 public class MainActivity extends Activity {
 
 
-    @InjectView(R.id.listView)
+    @Bind(R.id.listView)
     ListView listView;
-    @InjectView(R.id.tv)
+    @Bind(R.id.tv)
     TextView tv;
 
     private List<String> list = new ArrayList<>();
@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         for (int i = 0; i < 100; i++) {
             list.add("test----" + i);
