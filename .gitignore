@@ -3,5 +3,3 @@ Demos.iml
 .metadata/
 build/
 gradle/
-*.iml
-*.gradle
