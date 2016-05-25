@@ -1,1 +1,1 @@
-include ':app', ':toucheventdemo1', ':butterknifedemo1', ':butterknifedemo2', ':butterknifedemo3', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':dynamicproxydemo', ':reflectdemo', ':reflectannotiondemo', ':reflectannotionproxy', ':mvpdemo', ':rxjavademo'
+include ':app', ':toucheventdemo1', ':butterknifedemo1', ':butterknifedemo2', ':butterknifedemo3', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':dynamicproxydemo', ':reflectdemo', ':reflectannotiondemo', ':reflectannotionproxy', ':mvpdemo', ':rxjavademo', ':databindingdemo'

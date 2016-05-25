@@ -12,3 +12,9 @@
 9，RxJava
 10，okHttp
 11，RESTful风格
+12，DataBinding数据绑定
+13，MVC-->MVP-->MVVM
+14，C
+15，C++
+16，JNI
+17，NDK
