@@ -8,6 +8,6 @@ package com.example.zwb.dynamicproxydemo;
 public class Test {
     @Override
     public String toString() {
-        return "只是一个测试的累："+this.hashCode();
+        return "这是一个测试的类：" + this.hashCode();
     }
 }

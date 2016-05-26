@@ -8,14 +8,12 @@ import android.util.Log;
  * Date:2016/5/17
  ***************************************/
 public class RelSubject implements Subject {
-    @Override
-    public void prepare() {
-        Log.i("info","RelSubject-----------prepare()");
-    }
 
     @Override
     public Test sayHello(String str) {
-        Log.i("info","RelSubject---------sayHello："+str);
-        return new Test();
+        Log.i("info", "RelSubject---------sayHello：" + str);
+        Test test = new Test();
+        Log.i("info", "=====方法执行中的test=====" + test);
+        return test;
     }
 }

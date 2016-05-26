@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 Subject.class.getClassLoader(),
                 new Class[]{Subject.class},
                 new DynamicProxy(new RelSubject()));
-        subject.prepare();
-        Object str = subject.sayHello("world!");
-        Log.i("info","str============"+str);
+        Test test = subject.sayHello("world!");
+        Log.i("info","====实际返回的test========"+test);
     }
 }

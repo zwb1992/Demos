@@ -18,12 +18,10 @@ public class DynamicProxy implements InvocationHandler {
 
     @Override
     public Test invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Log.i("info","调用真实对象之前:#########################################");
         Log.i("info", "method==========" + method);
         Test object = (Test)method.invoke(subject, args);
+        Log.i("info","=====动态代理中获取的test====="+object);
         object = new Test();
-        Log.i("info","调用真实对象之后:##############object###########################"+object);
-        Log.i("info","调用真实对象之后:#########################################\n");
 //        return object;
         return null;
     }
