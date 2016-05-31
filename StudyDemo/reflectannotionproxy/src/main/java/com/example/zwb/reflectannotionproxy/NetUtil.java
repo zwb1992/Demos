@@ -45,8 +45,10 @@ public class NetUtil implements InvocationHandler {
             for (int i = 0;i<annotations.length;i++) {
                 Annotation[] annotations1 = annotations[i];
                 Log.i("info", "annotations1========" + annotations1);
+                Log.i("info", "annotations1.length========" + annotations1.length);
                 for (Annotation annotation : annotations1) {
                     Log.i("info", "annotation========" + annotation);
+                    Log.i("info", "annotation instanceof Parames========" + (annotation instanceof Parames?true:false));
                     if (annotation instanceof Parames) {
                         Parames parames = ((Parames) annotation);
                         arrayList.add(parames.value()+"-"+args[i]);
