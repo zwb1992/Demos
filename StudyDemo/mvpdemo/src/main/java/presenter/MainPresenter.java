@@ -2,7 +2,7 @@ package presenter;
 
 import com.zwb.mvpdemo.MainContract;
 
-import Bean.User;
+import com.zwb.mvpdemo2.Bean.User;
 import biz.LoginCallBack;
 import biz.UserBiz;
 

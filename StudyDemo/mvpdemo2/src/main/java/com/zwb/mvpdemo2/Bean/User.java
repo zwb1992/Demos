@@ -1,29 +1,28 @@
-package com.example.zwb.databindingdemo;
+package com.zwb.mvpdemo2.Bean;
 
 /***************************************
  * Author zhouweibin
  * Description .
- * Date:2016/5/24
+ * Date:2016/5/23
  ***************************************/
 public class User {
-
     private String name;
-    private int id;
-
-    public User() {
-    }
-
-    public User(String name, int id) {
-        this.name = name;
-        this.id = id;
-    }
+    private String pwd;
 
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
+                ", pwd='" + pwd + '\'' +
                 '}';
+    }
+
+    public User() {
+    }
+
+    public User(String name, String pwd) {
+        this.name = name;
+        this.pwd = pwd;
     }
 
     public String getName() {
@@ -34,11 +33,11 @@ public class User {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 }

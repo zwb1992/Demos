@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data class="com.example.zwb.databindingdemo.MainBinding">
 
         <variable
-            name="user"
-            type="com.example.zwb.databindingdemo.User" />
+            name="viewModel"
+            type="com.example.zwb.databindingdemo.ViewModel" />
     </data>
 
     <RelativeLayout
@@ -19,7 +19,7 @@
         tools:context="com.example.zwb.databindingdemo.MainActivity">
 
         <Button
-            android:onClick="bindData"
+            android:onClick="@{viewModel.bindData}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -29,6 +29,6 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.name}" />
+            android:text="@{viewModel.user.name}" />
     </RelativeLayout>
 </layout>

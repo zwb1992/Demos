@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import Bean.User;
+import com.zwb.mvpdemo2.Bean.User;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

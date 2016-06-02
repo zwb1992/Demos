@@ -1,6 +1,6 @@
 package biz;
 
-import Bean.User;
+import com.zwb.mvpdemo2.Bean.User;
 
 /***************************************
  * Author zhouweibin

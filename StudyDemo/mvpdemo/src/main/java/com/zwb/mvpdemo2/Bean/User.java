@@ -1,4 +1,4 @@
-package Bean;
+package com.zwb.mvpdemo2.Bean;
 
 /***************************************
  * Author zhouweibin

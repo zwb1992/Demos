@@ -1,6 +1,6 @@
 package com.zwb.mvpdemo;
 
-import Bean.User;
+import com.zwb.mvpdemo2.Bean.User;
 import presenter.BasePresenter;
 import view.BaseView;
 
