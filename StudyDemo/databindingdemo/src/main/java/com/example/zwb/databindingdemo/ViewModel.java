@@ -5,7 +5,7 @@ import android.view.View;
 
 /***************************************
  * Author zhouweibin
- * Description .
+ * Description .用这种方式不用继承BaseObservable
  * Date:2016/5/31
  ***************************************/
 public class ViewModel {
