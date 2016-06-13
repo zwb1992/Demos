@@ -1,4 +1,4 @@
-package com.zwb.mvvm;
+package com.zwb.zwbframe.mvvm;
 
 import android.os.Bundle;
 
@@ -14,14 +14,6 @@ public abstract class BaseActivity<T extends IView, VM extends AbstractViewMode<
     @Override
     public boolean useButterknife() {
         return true;
-    }
-
-    @Override
-    public void initView(Bundle savedInstanceState) {
-        setContentView(tellMeLayout());
-        if (useButterknife()) {
-            ButterKnife.bind(this);
-        }
     }
 
     @Override

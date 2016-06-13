@@ -7,9 +7,9 @@ package com.example.zwb.reflectannotionproxy;
  ***************************************/
 public interface NetApi {
 
-    @Get("http://api/reflectannotionproxy/getData")
+    @Get("/api/reflectannotionproxy/getData")
     Result getData(@Parames("type") String type, @Parames("description") String description);
 
-    @Post("http://api/reflectannotionproxy/postData")
+    @Post("/api/reflectannotionproxy/postData")
     Result postData(@Parames("type") String type, @Parames("description") String description);
 }

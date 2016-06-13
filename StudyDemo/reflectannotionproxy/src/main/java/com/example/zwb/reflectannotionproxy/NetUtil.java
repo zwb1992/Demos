@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Date:2016/5/20
  ***************************************/
 public class NetUtil implements InvocationHandler {
+    private static final String URL = "http://192.168.11.20:8080";
     private RequestType requestType;
 
     public NetUtil() {
@@ -32,12 +33,12 @@ public class NetUtil implements InvocationHandler {
         if (method.isAnnotationPresent(Get.class)) {
             Get get = method.getAnnotation(Get.class);
             requestType = RequestType.GET;
-            url = get.value();
+            url = URL + get.value();
         }
         if (method.isAnnotationPresent(Post.class)) {
             Post post = method.getAnnotation(Post.class);
             requestType = RequestType.POST;
-            url = post.value();
+            url = URL + post.value();
         }
         ArrayList<String> arrayList = new ArrayList<>();
         Annotation[][] annotations = method.getParameterAnnotations();

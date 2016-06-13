@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * Description .
  * Date:2016/6/3
  ***************************************/
-public abstract class AbstractBaseActitivty<T extends IView, VM extends AbstractViewMode<T>> extends AppCompatActivity implements IView {
+public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractViewMode<T>> extends AppCompatActivity implements IView {
     private final ViewModelHelper<T, VM> mViewModeHelper = new ViewModelHelper<>();
 
     @Override
