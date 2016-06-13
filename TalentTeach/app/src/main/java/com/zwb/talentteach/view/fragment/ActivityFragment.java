@@ -5,7 +5,6 @@ import android.widget.TextView;
 
 import com.zwb.talentteach.R;
 import com.zwb.talentteach.viewmodel.ActivityFragmentVM;
-import com.zwb.talentteach.viewmodel.FindFragmentVM;
 import com.zwb.zwbframe.mvvm.BaseFragment;
 
 import butterknife.Bind;

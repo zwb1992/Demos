@@ -3,6 +3,7 @@ package com.zwb.talentteach.utils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.SparseArray;
 
 import com.zwb.talentteach.R;
 import com.zwb.talentteach.view.fragment.ActivityFragment;
@@ -11,18 +12,13 @@ import com.zwb.talentteach.view.fragment.MineFragment;
 import com.zwb.talentteach.view.fragment.TalentFragment;
 import com.zwb.zwbframe.mvvm.BaseFragment;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 /***************************************
  * Author zhouweibin
  * Description .
  * Date:2016/6/13
  ***************************************/
 public class FragmentFactory {
-    public static HashMap<Integer, Fragment> fmHashMap = new HashMap<Integer, Fragment>();
+    public static SparseArray<Fragment> fmHashMap = new SparseArray<>();
     private static int mWhichFragment;
     private static int curposition = -1;
 
@@ -34,18 +30,16 @@ public class FragmentFactory {
         //有对象就获取，没对象就创建
         mWhichFragment = position;
 
-        if (curposition != -1 && curposition != position) {
-            BaseFragment baseFragment1 = (BaseFragment) fmHashMap.get(curposition);
-            baseFragment1.setUserVisibleHint(false);
-        }
+//        if (curposition != -1 && curposition != position) {
+//            BaseFragment baseFragment1 = (BaseFragment) fmHashMap.get(curposition);
+//            baseFragment1.setUserVisibleHint(false);
+//        }
         curposition = position;
-        if (fmHashMap.containsKey(position)) {
+        if (fmHashMap.get(position) != null) {
             //从缓存中获取对象
-            if (fmHashMap.get(position) != null) {
-                baseFragment = (BaseFragment) fmHashMap.get(position);
-                //显示指定Fragment
-                ft.show(baseFragment);
-            }
+            baseFragment = (BaseFragment) fmHashMap.get(position);
+            //显示指定Fragment
+            ft.show(baseFragment);
         } else {
             switch (position) {
                 case 0:  //发现
@@ -65,7 +59,7 @@ public class FragmentFactory {
             fmHashMap.put(position, baseFragment);
             ft.add(R.id.fl_fragment, baseFragment, position + "");
         }
-        baseFragment.setUserVisibleHint(true);
+//        baseFragment.setUserVisibleHint(true);
         ft.commitAllowingStateLoss();
     }
 
@@ -75,12 +69,8 @@ public class FragmentFactory {
      * @param ft
      */
     public static void hideFragments(FragmentTransaction ft) {
-        Set<Map.Entry<Integer, Fragment>> entrySet = fmHashMap.entrySet();
-        Iterator<Map.Entry<Integer, Fragment>> itm = entrySet.iterator();
-        while (itm.hasNext()) {
-            Map.Entry<Integer, Fragment> me = itm.next();
-            Integer key = me.getKey();
-            BaseFragment fragment = (BaseFragment) me.getValue();
+        for (int i = 0;i<4;i++){
+            BaseFragment fragment = (BaseFragment) fmHashMap.get(i);
             if (fragment != null) {
                 ft.hide(fragment);
             }
