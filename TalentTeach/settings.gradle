@@ -1,1 +1,1 @@
-include ':app', ':zwbframe'
+include ':app', ':zwbframe', ':imagepickerlib'

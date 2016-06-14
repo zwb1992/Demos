@@ -15,9 +15,6 @@ import butterknife.Bind;
  * Date:2016/6/13
  ***************************************/
 public class TalentFragment extends BaseFragment<TalentFragment, TalentFragmentVM> {
-    @Bind(R.id.tv)
-    TextView tv;
-
     @Override
     public int tellMeLayout() {
         return R.layout.fragment_mine;
@@ -30,7 +27,6 @@ public class TalentFragment extends BaseFragment<TalentFragment, TalentFragmentV
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        tv.setText("=========TalentFragment==============");
     }
 
 }

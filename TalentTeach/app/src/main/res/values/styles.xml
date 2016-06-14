@@ -11,6 +11,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:textColorHint">@color/activity_bg</item>
     </style>
     <!--  设置了 android:windowIsFloating=true 就不需要去设置屏幕亮度了 backgroundDimEnabled:设置背景是否变灰
   -->

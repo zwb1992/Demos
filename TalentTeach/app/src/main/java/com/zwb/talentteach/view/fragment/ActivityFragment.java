@@ -15,12 +15,9 @@ import butterknife.Bind;
  * Date:2016/6/13
  ***************************************/
 public class ActivityFragment extends BaseFragment<ActivityFragment, ActivityFragmentVM> {
-    @Bind(R.id.tv)
-    TextView tv;
-
     @Override
     public int tellMeLayout() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_activity;
     }
 
     @Override
@@ -30,7 +27,6 @@ public class ActivityFragment extends BaseFragment<ActivityFragment, ActivityFra
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        tv.setText("=========ActivityFragment==============");
     }
 
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zwb.talentteach.R;
@@ -11,6 +12,8 @@ import com.zwb.talentteach.viewmodel.MineFragmentVM;
 import com.zwb.zwbframe.mvvm.BaseFragment;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /***************************************
  * Author zhouweibin
@@ -18,8 +21,15 @@ import butterknife.Bind;
  * Date:2016/6/13
  ***************************************/
 public class MineFragment extends BaseFragment<MineFragment, MineFragmentVM> {
-    @Bind(R.id.tv)
-    TextView tv;
+
+    @Bind(R.id.iv_face)
+    ImageView ivFace;
+    @Bind(R.id.tv_tel)
+    TextView tvTel;
+    @Bind(R.id.tv_name)
+    TextView tvName;
+    @Bind(R.id.tv_service_tel)
+    TextView tvServiceTel;
 
     @Override
     public int tellMeLayout() {
@@ -33,7 +43,24 @@ public class MineFragment extends BaseFragment<MineFragment, MineFragmentVM> {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        tv.setText("=========MineFragment==============");
     }
 
+    @OnClick({R.id.ll_info, R.id.tv_collection, R.id.tv_entry, R.id.tv_join, R.id.tv_account, R.id.call})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ll_info:
+                getViewModel().goPersonInfo();
+                break;
+            case R.id.tv_collection:
+                break;
+            case R.id.tv_entry:
+                break;
+            case R.id.tv_join:
+                break;
+            case R.id.tv_account:
+                break;
+            case R.id.call:
+                break;
+        }
+    }
 }

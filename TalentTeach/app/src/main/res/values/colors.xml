@@ -6,4 +6,15 @@
     <color name="transparent">#00000000</color>
     <color name="black">#000</color>
     <color name="blue">#303F9F</color>
+    <color name="activity_bg">#ccc</color>
+    <!--分割线-->
+    <color name="divider">#dfdfdf</color>
+    <!--白色-->
+    <color name="white">#fff</color>
+    <!--条目点击后的颜色-->
+    <color name="layout_clicked">#e1e1e1</color>
+    <!--修改信息顶部颜色-->
+    <color name="change_top">#333</color>
+    <!--弹窗阴影背景-->
+    <color name="shadow_bg">#3000</color>
 </resources>

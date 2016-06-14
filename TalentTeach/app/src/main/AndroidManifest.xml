@@ -3,6 +3,7 @@
     package="com.zwb.talentteach">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -17,6 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.PersonInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.activity.ChangeInfoActivity"></activity>
     </application>
 
 </manifest>

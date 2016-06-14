@@ -13,12 +13,13 @@ import butterknife.ButterKnife;
  ***************************************/
 public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractViewMode<T>> extends AppCompatActivity implements IView {
     private final ViewModelHelper<T, VM> mViewModeHelper = new ViewModelHelper<>();
-
+    public AbstractBaseActivity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModeHelper.create(getVMClass());
         setContentView(tellMeLayout());
+        activity = this;
         if (useButterknife()) {
             ButterKnife.bind(this);
         }

@@ -16,12 +16,10 @@ import butterknife.Bind;
  * Date:2016/6/13
  ***************************************/
 public class FindFragment extends BaseFragment<FindFragment, FindFragmentVM> {
-    @Bind(R.id.tv)
-    TextView tv;
 
     @Override
     public int tellMeLayout() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_find;
     }
 
     @Override
@@ -31,7 +29,6 @@ public class FindFragment extends BaseFragment<FindFragment, FindFragmentVM> {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        tv.setText("=========FindFragment==============");
     }
 
 }
