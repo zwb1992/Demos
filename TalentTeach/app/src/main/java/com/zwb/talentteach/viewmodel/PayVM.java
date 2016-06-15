@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.zwb.paylibrary.alipay.Alipay;
 import com.zwb.paylibrary.alipay.PayResult;
+import com.zwb.paylibrary.weixinpay.WeiXinPay;
 import com.zwb.talentteach.view.activity.PayActivity;
 import com.zwb.zwbframe.mvvm.AbstractViewMode;
 
@@ -21,7 +22,7 @@ public class PayVM extends AbstractViewMode<PayActivity> {
      * 微信支付
      */
     public void wxPay(){
-
+        new WeiXinPay(getView(),"").pay();
     }
     /**
      * 支付宝支付

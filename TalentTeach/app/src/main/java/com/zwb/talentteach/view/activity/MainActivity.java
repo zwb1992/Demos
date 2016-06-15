@@ -3,8 +3,10 @@ package com.zwb.talentteach.view.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.zwb.talentteach.R;
@@ -79,5 +81,24 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> implements 
     protected void onDestroy() {
         super.onDestroy();
         FragmentFactory.clearFragmentMap();
+    }
+
+    private long exitTime = 0;
+
+    //连续按两次退出
+    @Override
+    public boolean onKeyDown(int key, KeyEvent event) {
+        switch (key) {
+            case KeyEvent.KEYCODE_BACK:
+                if ((System.currentTimeMillis() - exitTime) > 3000) { // 按一次返回键
+                    Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                    exitTime = System.currentTimeMillis();
+                } else {
+                    // 连续按两次返回键
+                    this.finish();
+                }
+                break;
+        }
+        return false;
     }
 }

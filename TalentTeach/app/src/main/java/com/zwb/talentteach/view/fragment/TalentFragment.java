@@ -17,7 +17,7 @@ import butterknife.Bind;
 public class TalentFragment extends BaseFragment<TalentFragment, TalentFragmentVM> {
     @Override
     public int tellMeLayout() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_talent;
     }
 
     @Override

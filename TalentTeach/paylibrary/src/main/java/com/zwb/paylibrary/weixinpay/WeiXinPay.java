@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.tencent.mm.sdk.constants.Build;
+import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.zwb.paylibrary.R;
@@ -19,13 +20,14 @@ import java.util.Random;
 public class WeiXinPay {
     private IWXAPI msgApi;
     private Context mContext;
-
-    public WeiXinPay(IWXAPI msgApi, Context mContext, String APP_ID) {
-        this.msgApi = msgApi;
+    private PayReq req;
+    public WeiXinPay(Context mContext, String APP_ID) {
         this.mContext = mContext;
         // APP_ID 替换为你的应用从官方网站申请到的合法appId
         msgApi = WXAPIFactory.createWXAPI(mContext, APP_ID);
         msgApi.registerApp(APP_ID);
+        req = new PayReq();
+        req.appId = APP_ID;
     }
 
     public void pay() {
@@ -37,6 +39,10 @@ public class WeiXinPay {
             Toast.makeText(mContext, mContext.getString(R.string.getWXAppSupportAPI), Toast.LENGTH_SHORT).show();
             return;
         }
+        req.packageValue = "Sign=WXPay";
+        req.nonceStr = genNonceStr();
+        req.timeStamp = String.valueOf(System.currentTimeMillis() / 1000);
+        msgApi.sendReq(req);
     }
     private String genNonceStr() {
         Random random = new Random();
