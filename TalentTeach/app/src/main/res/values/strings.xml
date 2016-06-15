@@ -24,5 +24,11 @@
     <string name="person_info">个人信息</string>
     <string name="take_picture">拍照</string>
     <string name="photo_album">从手机相册选择</string>
+    <string name="pay">支付</string>
+    <string name="price">价格</string>
+    <string name="need_pay">应付</string>
+    <string name="pay_type">支付方式</string>
+    <string name="weChatPay">微信支付</string>
+    <string name="alipay">支付宝</string>
 
 </resources>

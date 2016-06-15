@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PayLibrary</string>
+    <string name="isWXAppInstalled">请检查微信是否安装</string>
+    <string name="getWXAppSupportAPI">请检查微信版本是否支持支付功能</string>
+</resources>

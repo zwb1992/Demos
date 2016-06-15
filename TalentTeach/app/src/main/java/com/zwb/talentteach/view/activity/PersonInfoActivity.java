@@ -17,6 +17,7 @@ import com.zwb.imagepickerlib.Cropper;
 import com.zwb.talentteach.R;
 import com.zwb.talentteach.viewmodel.PersonInfoVM;
 import com.zwb.zwbframe.mvvm.BaseActivity;
+import com.zwb.zwbframe.utils.BitmapTools;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -133,7 +134,7 @@ public class PersonInfoActivity extends BaseActivity<PersonInfoActivity, PersonI
 
         if (compressPath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(compressPath);
-            ivFace.setImageBitmap(bitmap);
+            ivFace.setImageBitmap(BitmapTools.toRound(bitmap));
             Log.i("info", "=====" + compressPath);
         }
         mPopupWindow.dismiss();

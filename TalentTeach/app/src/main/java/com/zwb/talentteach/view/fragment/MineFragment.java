@@ -1,5 +1,6 @@
 package com.zwb.talentteach.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.activity.PayActivity;
 import com.zwb.talentteach.viewmodel.MineFragmentVM;
 import com.zwb.zwbframe.mvvm.BaseFragment;
 
@@ -58,6 +60,8 @@ public class MineFragment extends BaseFragment<MineFragment, MineFragmentVM> {
             case R.id.tv_join:
                 break;
             case R.id.tv_account:
+                Intent intent = new Intent(mContext, PayActivity.class);
+                startActivity(intent);
                 break;
             case R.id.call:
                 break;
