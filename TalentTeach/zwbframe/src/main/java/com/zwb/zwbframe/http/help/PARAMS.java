@@ -1,4 +1,4 @@
-package com.zwb.zwbframe.http.net;
+package com.zwb.zwbframe.http.help;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

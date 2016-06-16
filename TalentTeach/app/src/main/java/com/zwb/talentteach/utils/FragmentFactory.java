@@ -6,11 +6,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.base.BaseFragment;
 import com.zwb.talentteach.view.fragment.ActivityFragment;
 import com.zwb.talentteach.view.fragment.FindFragment;
 import com.zwb.talentteach.view.fragment.MineFragment;
 import com.zwb.talentteach.view.fragment.TalentFragment;
-import com.zwb.zwbframe.mvvm.BaseFragment;
 
 /***************************************
  * Author zhouweibin

@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
+import com.zwb.zwbframe.event.NetEvent;
+import com.zwb.zwbframe.http.net.OnNetEventListener;
+
 import butterknife.ButterKnife;
 
 /***************************************
@@ -11,7 +14,7 @@ import butterknife.ButterKnife;
  * Description .
  * Date:2016/6/3
  ***************************************/
-public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractViewMode<T>> extends AppCompatActivity implements IView {
+public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractViewMode<T>> extends AppCompatActivity implements IView,OnNetEventListener {
     private final ViewModelHelper<T, VM> mViewModeHelper = new ViewModelHelper<>();
     public AbstractBaseActivity activity;
     @Override
@@ -76,5 +79,18 @@ public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractV
     protected void onDestroy() {
         super.onDestroy();
         mViewModeHelper.onDestroy();
+        if (useButterknife()) {
+            ButterKnife.unbind(this);
+        }
+    }
+
+    @Override
+    public void netSuccess(NetEvent netEvent) {
+
+    }
+
+    @Override
+    public boolean netfailed(NetEvent netEvent) {
+        return false;
     }
 }

@@ -3,6 +3,9 @@ package com.zwb.zwbframe.mvvm;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.zwb.zwbframe.event.NetEvent;
+import com.zwb.zwbframe.http.net.OnNetEventListener;
+
 import java.lang.ref.WeakReference;
 
 /***************************************
@@ -10,7 +13,7 @@ import java.lang.ref.WeakReference;
  * Description .
  * Date:2016/6/3
  ***************************************/
-public abstract class AbstractViewMode<T extends IView> {
+public abstract class AbstractViewMode<T extends IView> implements OnNetEventListener{
     private WeakReference<T> mView;
 
     public void onBindView(@NonNull T view) {
@@ -46,5 +49,15 @@ public abstract class AbstractViewMode<T extends IView> {
 
     public void onDestroy() {
 
+    }
+
+    @Override
+    public void netSuccess(NetEvent netEvent) {
+
+    }
+
+    @Override
+    public boolean netfailed(NetEvent netEvent) {
+        return false;
     }
 }

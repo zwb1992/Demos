@@ -16,8 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.base.BaseActivity;
 import com.zwb.talentteach.viewmodel.ChangeInfoVM;
-import com.zwb.zwbframe.mvvm.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.OnClick;

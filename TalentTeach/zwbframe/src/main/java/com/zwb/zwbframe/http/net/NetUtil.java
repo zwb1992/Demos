@@ -4,10 +4,17 @@ import android.util.Log;
 
 import com.zwb.zwbframe.http.HttpListener;
 import com.zwb.zwbframe.http.HttpRequest;
+import com.zwb.zwbframe.http.help.GET;
+import com.zwb.zwbframe.http.help.PARAMS;
+import com.zwb.zwbframe.http.help.POST;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.GenericSignatureFormatError;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,14 +27,14 @@ import java.util.Map;
  ***************************************/
 public class NetUtil implements InvocationHandler {
     public static Map<String, String> defaultRequestMaps;
-    private HttpListener listener;
-    static String HOST = "http://192.168.1.70";
-
-    boolean shouldCache = true;
+    private OnNetEventListener listener;
+    static String HOST = "http://192.168.1.150";
 
     public NetUtil(String host) {
         HOST = host;
     }
+
+    boolean shouldCache = true;
 
     public void setShouldCache(boolean shouldCache) {
         this.shouldCache = shouldCache;
@@ -35,7 +42,7 @@ public class NetUtil implements InvocationHandler {
 
     private static final java.lang.String TAG = "NetUtil";
 
-    public void setListener(HttpListener listener) {
+    public void setListener(OnNetEventListener listener) {
         this.listener = listener;
     }
 
@@ -67,7 +74,7 @@ public class NetUtil implements InvocationHandler {
     }
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    public NetRequest invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String url = null;
         HttpRequest.RequstType type = null;
         if (method.isAnnotationPresent(POST.class)) {
@@ -81,15 +88,11 @@ public class NetUtil implements InvocationHandler {
             url = post.value();
             type = HttpRequest.RequstType.GET;
         }
-        switch (type) {
-            case GET:
-                HttpRequest.requestGet(listener, defaultProcess(method, args, url, type), url, this, shouldCache);
-                break;
-            case POST:
-                HttpRequest.requestPost(listener, defaultProcess(method, args, url, type), url, this, shouldCache);
-                break;
-        }
-        return null;
+        NetRequest netRequest = new NetRequest();
+        netRequest.setNetEventListener(listener);
+        netRequest.setTypes(getTType(method));
+        netRequest.getData(defaultProcess(method, args, url, type), HOST + url, type, shouldCache);
+        return netRequest;
     }
 
     /**
@@ -142,5 +145,21 @@ public class NetUtil implements InvocationHandler {
             }
         }
         return parameteNames;
+    }
+
+    private Type[] getTType(Method method) {
+        Type[] types = null;
+        try {
+            Type returnType = method.getGenericReturnType();// 返回类型
+            types = ((ParameterizedType) returnType).getActualTypeArguments();//如果支持泛型，返回表示此类型实际类型参数的Type对象的数组
+        } catch (GenericSignatureFormatError error) {
+            error.printStackTrace();
+        } catch (TypeNotPresentException e) {
+            e.printStackTrace();
+        } catch (MalformedParameterizedTypeException e) {
+            e.printStackTrace();
+        } catch (ClassCastException e) {
+        }
+        return types;
     }
 }

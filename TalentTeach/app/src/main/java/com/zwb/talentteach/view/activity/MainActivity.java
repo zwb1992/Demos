@@ -8,19 +8,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.android.volley.VolleyError;
 import com.zwb.talentteach.R;
 import com.zwb.talentteach.http.Net;
 import com.zwb.talentteach.utils.FragmentFactory;
+import com.zwb.talentteach.view.base.BaseActivity;
 import com.zwb.talentteach.viewmodel.MainVM;
-import com.zwb.zwbframe.http.HttpListener;
 import com.zwb.zwbframe.http.HttpRequest;
-import com.zwb.zwbframe.mvvm.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity<MainActivity, MainVM> implements HttpListener {
+public class MainActivity extends BaseActivity<MainActivity, MainVM> {
 
     @Bind(R.id.image)
     ImageView image;
@@ -40,16 +38,6 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> implements 
     public void initView(Bundle savedInstanceState) {
         fragmentManager = getSupportFragmentManager();
         FragmentFactory.showFragment(0, fragmentManager);
-    }
-
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        Log.i("info", "=====onErrorResponse======" + error.toString());
-    }
-
-    @Override
-    public void onResponse(String response) {
-        Log.i("info", "=====onResponse======" + response.toString());
     }
 
     @OnClick(R.id.bt)

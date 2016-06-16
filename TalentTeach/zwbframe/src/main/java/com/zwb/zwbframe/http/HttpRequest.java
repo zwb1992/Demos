@@ -61,9 +61,9 @@ public class HttpRequest {
     }
 
     //    get请求
-    public static Request requestGet(HttpListener listener,
+    public static Request requestGet(HttpCallBack callBack,
                                       final Map<String, String> params, String url, Object tag, boolean shouldCache) {
-
+        HttpListener listener = new HttpListener(callBack);
         String geturl = geturl(params, url);
         Log.i(tag.toString(), geturl);
         StringRequest stringequest = new StringRequest(Request.Method.GET, geturl,
@@ -85,10 +85,10 @@ public class HttpRequest {
     }
 
     //    post请求
-    public static Request requestPost(HttpListener listener,
+    public static Request requestPost(HttpCallBack callBack,
                                        final Map<String, String> params,
                                        String url, Object tag, boolean shouldCache) {
-
+        HttpListener listener = new HttpListener(callBack);
         StringRequest stringequest = new StringRequest(Request.Method.POST, url,
                 listener, listener) {
             @Override

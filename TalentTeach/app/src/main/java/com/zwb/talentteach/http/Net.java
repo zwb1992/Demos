@@ -2,9 +2,9 @@ package com.zwb.talentteach.http;
 
 import android.widget.ImageView;
 
-import com.zwb.zwbframe.http.HttpListener;
 import com.zwb.zwbframe.http.HttpRequest;
 import com.zwb.zwbframe.http.net.NetUtil;
+import com.zwb.zwbframe.http.net.OnNetEventListener;
 
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
@@ -16,10 +16,8 @@ import java.util.Map;
  * Date:2016/6/13
  ***************************************/
 public class Net {
-    NetApi api = null;
-
     public static class NetInstance {
-        public static NetUtil netUtil = new NetUtil(NetApi.HTTP_FORTEST);
+        public static NetUtil netUtil = new NetUtil("http://192.168.1.150");
         public static NetApi apiIntance = (NetApi) Proxy.newProxyInstance(
                 NetApi.class.getClassLoader(),
                 new Class[]{NetApi.class},
@@ -52,18 +50,15 @@ public class Net {
         }
     }
 
-    public static NetApi get(HttpListener listener) {
-        return get(false, listener);
+
+    public static NetApi get(OnNetEventListener listener) {
+        return get(true, listener);
     }
 
-    public static NetApi get(boolean shouldCache, HttpListener listener) {
+    public static NetApi get(boolean shouldCache, OnNetEventListener listener) {
         NetInstance.netUtil.setShouldCache(shouldCache);
         NetInstance.netUtil.setListener(listener);
         return NetInstance.apiIntance;
-    }
-
-    public void setHttpListener(HttpListener listener) {
-        NetInstance.netUtil.setListener(listener);
     }
 
     public static void imageLoader(final String imageurl, final ImageView view,

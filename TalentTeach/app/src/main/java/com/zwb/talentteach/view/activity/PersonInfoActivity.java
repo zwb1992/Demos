@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.zwb.imagepickerlib.Cropper;
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.base.BaseActivity;
 import com.zwb.talentteach.viewmodel.PersonInfoVM;
-import com.zwb.zwbframe.mvvm.BaseActivity;
 import com.zwb.zwbframe.utils.BitmapTools;
 
 import butterknife.Bind;

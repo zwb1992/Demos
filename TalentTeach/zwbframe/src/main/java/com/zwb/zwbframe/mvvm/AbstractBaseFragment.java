@@ -10,12 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zwb.zwbframe.event.NetEvent;
+import com.zwb.zwbframe.http.net.OnNetEventListener;
+
+import butterknife.ButterKnife;
+
 /***************************************
  * Author zhouweibin
  * Description .
  * Date:2016/6/13
  ***************************************/
-public abstract class AbstractBaseFragment<T extends IView, VM extends AbstractViewMode<T>> extends Fragment implements IView {
+public abstract class AbstractBaseFragment<T extends IView, VM extends AbstractViewMode<T>> extends Fragment implements IView,OnNetEventListener {
     private final ViewModelHelper<T, VM> mViewModeHelper = new ViewModelHelper<>();
     protected Context mContext;
     private View mRootView;
@@ -100,5 +105,23 @@ public abstract class AbstractBaseFragment<T extends IView, VM extends AbstractV
     public void onDestroy() {
         super.onDestroy();
         mViewModeHelper.onDestroy();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (useButterknife()) {
+            ButterKnife.unbind(this);
+        }
+    }
+
+    @Override
+    public void netSuccess(NetEvent netEvent) {
+
+    }
+
+    @Override
+    public boolean netfailed(NetEvent netEvent) {
+        return false;
     }
 }

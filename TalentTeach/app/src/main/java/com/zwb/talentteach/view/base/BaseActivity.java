@@ -1,6 +1,11 @@
-package com.zwb.zwbframe.mvvm;
+package com.zwb.talentteach.view.base;
 
-import android.os.Bundle;
+
+import com.zwb.talentteach.http.Net;
+import com.zwb.talentteach.http.NetApi;
+import com.zwb.zwbframe.mvvm.AbstractBaseActivity;
+import com.zwb.zwbframe.mvvm.AbstractViewMode;
+import com.zwb.zwbframe.mvvm.IView;
 
 import butterknife.ButterKnife;
 
@@ -16,9 +21,7 @@ public abstract class BaseActivity<T extends IView, VM extends AbstractViewMode<
         return true;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ButterKnife.unbind(this);
+    public NetApi net(){
+        return Net.get(this);
     }
 }

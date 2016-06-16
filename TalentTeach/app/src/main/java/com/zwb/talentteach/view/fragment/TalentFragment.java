@@ -1,13 +1,10 @@
 package com.zwb.talentteach.view.fragment;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.base.BaseFragment;
 import com.zwb.talentteach.viewmodel.TalentFragmentVM;
-import com.zwb.zwbframe.mvvm.BaseFragment;
-
-import butterknife.Bind;
 
 /***************************************
  * Author zhouweibin

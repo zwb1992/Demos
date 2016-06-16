@@ -1,4 +1,4 @@
-package com.zwb.zwbframe.http.net;
+package com.zwb.zwbframe.http.help;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,11 +7,11 @@ import java.lang.annotation.Target;
 
 /***************************************
  * Author zhouweibin
- * Description .模拟post请求
+ * Description .模拟get请求
  * Date:2016/5/20
  ***************************************/
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface POST {
+public @interface GET {
     String value() default "";
 }

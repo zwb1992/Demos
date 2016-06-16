@@ -7,8 +7,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.zwb.talentteach.R;
+import com.zwb.talentteach.view.base.BaseActivity;
 import com.zwb.talentteach.viewmodel.PayVM;
-import com.zwb.zwbframe.mvvm.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.OnClick;
