@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#000</color>
+    <color name="blue">#303F9F</color>
+    <color name="activity_bg">#ccc</color>
+    <!--分割线-->
+    <color name="divider">#dfdfdf</color>
+    <!--白色-->
+    <color name="white">#fff</color>
+    <!--条目点击后的颜色-->
+    <color name="layout_clicked">#e1e1e1</color>
+    <!--修改信息顶部颜色-->
+    <color name="change_top">#333</color>
+    <!--弹窗阴影背景-->
+    <color name="shadow_bg">#3000</color>
+    <!--导航栏、状态栏、页内背景、搜索栏、弹窗-->
+    <color name="c1">#ffffff</color>
+    <!--标题和正文文字-->
+    <color name="c7">#333333</color>
+    <!--主题色-->
+    <color name="c8">#26b14c</color>
+    <!--浅绿色  按钮被点击状态-->
+    <color name="c11">#5e996e</color>
+</resources>

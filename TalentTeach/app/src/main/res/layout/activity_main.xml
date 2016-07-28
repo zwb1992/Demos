@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="150dp" />
+
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取图片" />
+
+    <FrameLayout
+        android:id="@+id/fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_find"
+            style="@style/main_radio"
+            android:checked="true"
+            android:text="@string/find" />
+
+        <RadioButton
+            android:id="@+id/rb_talent"
+            style="@style/main_radio"
+            android:text="@string/talent" />
+
+        <RadioButton
+            android:id="@+id/rb_activity"
+            style="@style/main_radio"
+            android:text="@string/activity" />
+
+        <RadioButton
+            android:id="@+id/rb_mine"
+            style="@style/main_radio"
+            android:text="@string/mine" />
+    </RadioGroup>
+</LinearLayout>

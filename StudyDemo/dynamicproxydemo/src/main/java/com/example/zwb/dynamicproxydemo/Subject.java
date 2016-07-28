@@ -6,6 +6,5 @@ package com.example.zwb.dynamicproxydemo;
  * Date:2016/5/17
  ***************************************/
 public interface Subject {
-    void prepare();
     Test sayHello(String str);
 }

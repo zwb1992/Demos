@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--顶部title-->
+    <dimen name="title">20sp</dimen>
+    <!--标签-->
+    <dimen name="mark">18sp</dimen>
+    <!--一般性文字-->
+    <dimen name="text">16sp</dimen>
+    <!--提示-->
+    <dimen name="tip">14sp</dimen>
+</resources>
