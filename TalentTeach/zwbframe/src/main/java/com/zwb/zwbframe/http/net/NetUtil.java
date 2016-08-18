@@ -28,7 +28,7 @@ import java.util.Map;
 public class NetUtil implements InvocationHandler {
     public static Map<String, String> defaultRequestMaps;
     private OnNetEventListener listener;
-    static String HOST = "http://192.168.1.150";
+    static String HOST = "http://api.5yxue.cn";
 
     public NetUtil(String host) {
         HOST = host;

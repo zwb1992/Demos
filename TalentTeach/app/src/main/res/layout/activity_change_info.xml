@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/activity_bg"
-    tools:context="com.zwb.talentteach.view.activity.ChangeInfoActivity">
+    tools:context="com.iwanna.learn.view.activity.ChangeInfoActivity">
 
     <RelativeLayout
         android:id="@+id/rl_top"

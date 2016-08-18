@@ -15,7 +15,7 @@ public class NetRequest<T> {
 
     public enum RESPONSE_STATUS {
         NOT_NET(100),//手机网络连接异常
-        PARSE_ERROR(200),//json解析出错
+        PARSE_ERROR(300),//json解析出错
         OK(200),//请求成功
         ERROR(404);//服务器响应错误
 

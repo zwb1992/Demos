@@ -41,11 +41,12 @@ public class HttpListener implements Response.Listener<String>, Response.ErrorLi
 
     @Override
     public void onResponse(String response) {
+
         try {
             netInfo = new NetInfo();
             JSONObject object = new JSONObject(response);
             netInfo.setCode((int) object.get("code"));
-            netInfo.setMsg((String) object.get("msg"));
+            netInfo.setMsg((String) object.get("Message"));
             netInfo.setData(object.getString("data"));
         } catch (Exception e) {
             System.out.println(e.toString());

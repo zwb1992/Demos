@@ -25,4 +25,8 @@
     <color name="c8">#26b14c</color>
     <!--浅绿色  按钮被点击状态-->
     <color name="c11">#5e996e</color>
+
+    <color name="text_color_black">#333333</color>
+    <color name="text_color_grey">#909090</color>
+    <color name="white_20">#33ffffff</color>
 </resources>

@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 //        firstType();
 //        secondeType();
 //        thirdType();
-        forthType();
+//        forthType();
+
     }
 
     private void firstType() {

@@ -3,11 +3,16 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!--顶部title-->
-    <dimen name="title">20sp</dimen>
+    <dimen name="title">18sp</dimen>
     <!--标签-->
     <dimen name="mark">18sp</dimen>
     <!--一般性文字-->
     <dimen name="text">16sp</dimen>
     <!--提示-->
     <dimen name="tip">14sp</dimen>
+    <dimen name="action_bar_height">44dp</dimen>
+    <!--首页图片上的标题-->
+    <dimen name="text_title">17sp</dimen>
+    <dimen name="text_content">13sp</dimen>
+    <dimen name="text_loc">11sp</dimen>
 </resources>

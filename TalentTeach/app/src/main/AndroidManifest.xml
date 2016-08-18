@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zwb.talentteach">
+    package="com.iwanna.learn">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -9,13 +9,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.iwanna.learn.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name="com.iwanna.learn.view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,9 +23,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.PersonInfoActivity"
+            android:name="com.iwanna.learn.view.activity.PersonInfoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".view.activity.ChangeInfoActivity" />
+        <activity android:name="com.iwanna.learn.view.activity.ChangeInfoActivity" />
 
         <!-- 图片裁剪页面 -->
         <activity android:name="com.zwb.imagepickerlib.ImageCropActivity" />
@@ -38,14 +38,14 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <!-- alipay sdk end -->
         <activity
-            android:name=".view.activity.PayActivity"
+            android:name="com.iwanna.learn.view.activity.PayActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
 
         <!--微信支付-->
         <activity
-            android:name=".wxapi.WXPayEntryActivity"
+            android:name="com.iwanna.learn.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
     </application>

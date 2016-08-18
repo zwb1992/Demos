@@ -4,50 +4,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.MainActivity">
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context="com.iwanna.learn.view.activity.MainActivity">
+    <include layout="@layout/layout_topview"/>
 
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="200dp"
-        android:layout_height="150dp" />
-
-    <Button
-        android:id="@+id/bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="获取图片" />
 
     <FrameLayout
         android:id="@+id/fl_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_weight="1"/>
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_index"
+            style="@style/main_radio"
+            android:drawableTop="@drawable/index_select"
+            android:checked="true"
+            android:text="@string/index" />
 
         <RadioButton
             android:id="@+id/rb_find"
             style="@style/main_radio"
-            android:checked="true"
+            android:drawableTop="@drawable/find_select"
             android:text="@string/find" />
-
-        <RadioButton
-            android:id="@+id/rb_talent"
-            style="@style/main_radio"
-            android:text="@string/talent" />
 
         <RadioButton
             android:id="@+id/rb_activity"
             style="@style/main_radio"
+            android:drawableTop="@drawable/activity_select"
             android:text="@string/activity" />
 
         <RadioButton
             android:id="@+id/rb_mine"
             style="@style/main_radio"
+            android:drawableTop="@drawable/mine_select"
             android:text="@string/mine" />
     </RadioGroup>
 </LinearLayout>

@@ -1,2 +1,4 @@
-include ':app', ':toucheventdemo1', ':butterknifedemo1', ':butterknifedemo2', ':butterknifedemo3', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':dynamicproxydemo', ':reflectdemo', ':reflectannotiondemo', ':reflectannotionproxy', ':mvpdemo', ':rxjavademo', ':databindingdemo', ':reflectdemo2', ':mvpdemo2', ':mvvm'
-
+include ':app', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':rxjavademo', ':databindingdemo', ':reflectdemo2', ':viewpagerindicator', ':viewpagerindictorlibrary', ':calendardemo', ':zxinglibrary', ':zxingdemo', ':wheelviewdemo'
+include ':refreshdemo', ':toucheventdemo1', ':toucheventdemo2', ':butterknifedemo1', ':butterknifedemo2', ':butterknifedemo3'
+include ':dynamicproxydemo', ':reflectdemo', ':reflectannotiondemo', ':reflectannotionproxy'
+include ':mvpdemo', ':mvpdemo2', ':mvvm'
