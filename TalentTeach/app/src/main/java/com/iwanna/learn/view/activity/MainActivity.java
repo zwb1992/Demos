@@ -46,6 +46,8 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
     public void initView(Bundle savedInstanceState) {
         imgBack.setVisibility(View.GONE);
         tvTitle.setBackgroundResource(R.mipmap.logo);
+        tvRight.setVisibility(View.VISIBLE);
+        tvRight.setBackgroundResource(R.mipmap.search);
         fragmentManager = getSupportFragmentManager();
         FragmentFactory.showFragment(0, fragmentManager);
     }
@@ -54,7 +56,7 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
     public void onClick() {
         image.setTag("https://www.baidu.com/img/bd_logo1.png");
         Net.imageLoader("https://www.baidu.com/img/bd_logo1.png", image, R.mipmap.ic_launcher, R.mipmap.ic_launcher, HttpRequest.ImageShapeType.ROUND);
-        getViewModel().getData();
+        getViewModel().getExpandData();
     }*/
 
     @OnClick({R.id.rb_find, R.id.rb_index, R.id.rb_activity, R.id.rb_mine,R.id.tv_right})

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="bgColor" format="color"/>
+        <attr name="firstColor" format="color"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="mCircleWidth" format="dimension"/>
+        <attr name="keduWidth" format="dimension"/>
+        <attr name="mCount" format="integer"/>
+    </declare-styleable>
+</resources>

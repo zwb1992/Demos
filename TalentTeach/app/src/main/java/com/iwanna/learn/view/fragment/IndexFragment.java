@@ -1,16 +1,21 @@
 package com.iwanna.learn.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iwanna.learn.R;
 import com.iwanna.learn.http.Net;
 import com.iwanna.learn.model.ExpandInfo;
+import com.iwanna.learn.model.JiGou;
+import com.iwanna.learn.view.activity.ExpandActivity;
 import com.iwanna.learn.view.base.BaseFragment;
 import com.iwanna.learn.viewmodel.IndexFragmentVM;
 import com.zwb.pulltorefreshlibrary.refreshlayout.NormalRefreshViewHolder;
@@ -36,7 +41,8 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
     RefreshLayout rlRefresh;
 
     private List<ExpandInfo> expandInfoList = new ArrayList<>();
-    private CommonAdapter<ExpandInfo> adapter;
+    private List<JiGou> jiGouList = new ArrayList<>();
+    private CommonAdapter<JiGou> adapter;
 
     @Override
     public int tellMeLayout() {
@@ -51,7 +57,8 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
     @Override
     protected void initView(Bundle savedInstanceState) {
         initAdapter();
-        getViewModel().getData();
+        getViewModel().getExpandData();
+        getViewModel().getJiGouData();
     }
 
     private void initAdapter(){
@@ -59,23 +66,39 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
         rlRefresh.setRefreshViewHolder(normalRefreshViewHolder);
         rlRefresh.setIsShowLoadingMoreView(false);//是否显示加载控件
         rlRefresh.setDelegate(this);//设置下拉刷新
-        adapter = new CommonAdapter<ExpandInfo>(mContext,R.layout.item_view_index,LayoutInflater.from(mContext),expandInfoList) {
+        adapter = new CommonAdapter<JiGou>(mContext,R.layout.item_view_index,LayoutInflater.from(mContext),jiGouList) {
             @Override
-            public void convert(ViewHolder holder, ExpandInfo expandInfo) {
-                holder.setText(R.id.tv_title,expandInfo.getTypeName());
-                holder.setText(R.id.tv_content,expandInfo.getIntroduce());
+            public void convert(ViewHolder holder, JiGou jiGou) {
+                holder.setText(R.id.tv_title,jiGou.getAgencyName());
+                holder.setText(R.id.tv_content,jiGou.getAdress());
                 ImageView imageView = holder.getView(R.id.img_expand);
-                imageView.setTag(Net.NetInstance.IMG_URL+expandInfo.getImg());
-                Net.imageLoader(Net.NetInstance.IMG_URL+expandInfo.getImg(),imageView,R.mipmap.default_img,R.mipmap.default_img, HttpRequest.ImageShapeType.NORMAL);
+                imageView.setTag(Net.NetInstance.IMG_URL+"/"+jiGou.getImg());
+                Net.imageLoader(Net.NetInstance.IMG_URL+"/"+jiGou.getImg(),imageView,R.mipmap.default_img,R.mipmap.default_img, HttpRequest.ImageShapeType.NORMAL);
             }
         };
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i < expandInfoList.size()){
+                    ExpandInfo expandInfo = expandInfoList.get(i);
+//                    Toast.makeText(getActivity(),"===expand===="+expandInfo.toString(),Toast.LENGTH_SHORT).show();
+                    Intent hobbyIntent = new Intent(getActivity(), ExpandActivity.class);
+                    hobbyIntent.putExtra("expandInfo",expandInfo);
+                    startActivity(hobbyIntent);
+                }else if(i > expandInfoList.size()){
+                    JiGou jiGou = jiGouList.get(i - expandInfoList.size() - 1);
+                    Toast.makeText(getActivity(),"===jigou===="+jiGou.toString(),Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
 
     //下拉刷新
     @Override
     public void onRefreshLayoutBeginRefreshing(RefreshLayout refreshLayout) {
-        getViewModel().getData();
+        getViewModel().getJiGouData();
     }
 
     //上拉加载
@@ -84,10 +107,10 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
         return false;
     }
 
-    public void refreshData(List<ExpandInfo> expandInfos){
+    public void refreshData(List<JiGou> jiGous){
         rlRefresh.endRefreshing();
-        expandInfoList.clear();
-        expandInfoList.addAll(expandInfos);
+        jiGouList.clear();
+        jiGouList.addAll(jiGous);
         adapter.notifyDataSetChanged();
     }
 

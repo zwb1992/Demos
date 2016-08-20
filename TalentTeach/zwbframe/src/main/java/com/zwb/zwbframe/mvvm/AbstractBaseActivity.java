@@ -1,5 +1,6 @@
 package com.zwb.zwbframe.mvvm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -93,4 +94,64 @@ public abstract class AbstractBaseActivity<T extends IView, VM extends AbstractV
     public boolean netfailed(NetEvent netEvent) {
         return false;
     }
+
+    /**
+     * startActivity
+     */
+    final public void readyGo(Class<?> clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+    }
+
+    /**
+     * startActivity with bundle
+     */
+    final public void readyGo(Class<?> clazz, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * startActivity then finish
+     */
+    final public void readyGoThenKill(Class<?> clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * startActivity with bundle then finish
+     */
+    final public void readyGoThenKill(Class<?> clazz, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * startActivityForResult
+     */
+    final public void readyGoForResult(Class<?> clazz, int requestCode) {
+        Intent intent = new Intent(this, clazz);
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * startActivityForResult with bundle
+     */
+    final public void readyGoForResult(Class<?> clazz, int requestCode, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
+    }
+
 }

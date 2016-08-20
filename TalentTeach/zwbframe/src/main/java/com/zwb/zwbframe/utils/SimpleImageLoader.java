@@ -3,6 +3,7 @@ package com.zwb.zwbframe.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.util.LruCache;
 
 import com.android.volley.RequestQueue;
@@ -19,6 +20,8 @@ public class SimpleImageLoader extends ImageLoader {
 
     private static BitmapCache bitmapCache;
 
+    private static FileUtils fileUtils;
+
     public SimpleImageLoader(RequestQueue queue, ImageCache imageCache) {
         super(queue, imageCache);
     }
@@ -29,6 +32,7 @@ public class SimpleImageLoader extends ImageLoader {
                 if (imageLoader == null) {
                     bitmapCache = new BitmapCache();
                     imageLoader = new SimpleImageLoader(requestQueue, bitmapCache);
+                    fileUtils = new FileUtils(context);
                 }
             }
 
@@ -47,12 +51,23 @@ public class SimpleImageLoader extends ImageLoader {
                 protected int sizeOf(String key, Bitmap value) {
                     return value.getRowBytes() * value.getHeight();
                 }
+
+                @Override
+                protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
+                    super.entryRemoved(evicted, key, oldValue, newValue);
+                    if(evicted && oldValue != null){
+                        fileUtils.savaBitmap(fileUtils.getFileName(key),oldValue);
+                    }
+                }
             };
         }
 
         @SuppressLint("NewApi")
         @Override
         public Bitmap getBitmap(String url) {
+            if(fileUtils.getBitmap(fileUtils.getFileName(url)) != null){
+                return fileUtils.getBitmap(fileUtils.getFileName(url));
+            }
             return mCache.get(url);
         }
 

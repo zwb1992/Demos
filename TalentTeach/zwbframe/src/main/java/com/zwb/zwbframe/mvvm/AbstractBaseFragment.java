@@ -2,6 +2,7 @@ package com.zwb.zwbframe.mvvm;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -123,5 +124,54 @@ public abstract class AbstractBaseFragment<T extends IView, VM extends AbstractV
     @Override
     public boolean netfailed(NetEvent netEvent) {
         return false;
+    }
+    /**
+     * startActivity
+     *
+     * @param clazz
+     */
+    final protected void readyGo(Class<?> clazz) {
+        Intent intent = new Intent(getActivity(), clazz);
+        startActivity(intent);
+    }
+
+    /**
+     * startActivity with bundle
+     *
+     * @param clazz
+     * @param bundle
+     */
+    final protected void readyGo(Class<?> clazz, Bundle bundle) {
+        Intent intent = new Intent(getActivity(), clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * startActivityForResult
+     *
+     * @param clazz
+     * @param requestCode
+     */
+    final protected void readyGoForResult(Class<?> clazz, int requestCode) {
+        Intent intent = new Intent(getActivity(), clazz);
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * startActivityForResult with bundle
+     *
+     * @param clazz
+     * @param requestCode
+     * @param bundle
+     */
+    final protected void readyGoForResult(Class<?> clazz, int requestCode, Bundle bundle) {
+        Intent intent = new Intent(getActivity(), clazz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
     }
 }

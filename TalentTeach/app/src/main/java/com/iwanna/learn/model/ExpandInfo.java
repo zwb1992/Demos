@@ -1,11 +1,13 @@
 package com.iwanna.learn.model;
 
+import java.io.Serializable;
+
 /**
  * Created by zwb
  * Description 首页推广内容
  * Date 16/8/11.
  */
-public class ExpandInfo {
+public class ExpandInfo implements Serializable{
 
     /**
      * TypeName : 钢琴
