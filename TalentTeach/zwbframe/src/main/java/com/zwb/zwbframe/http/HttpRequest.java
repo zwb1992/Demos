@@ -88,6 +88,7 @@ public class HttpRequest {
     public static Request requestPost(HttpCallBack callBack,
                                        final Map<String, String> params,
                                        String url, Object tag, boolean shouldCache) {
+        Log.i("info","==post==="+params);
         HttpListener listener = new HttpListener(callBack);
         StringRequest stringequest = new StringRequest(Request.Method.POST, url,
                 listener, listener) {
@@ -146,6 +147,39 @@ public class HttpRequest {
         };
     }
 
+    //    取代volley默认的图片监听，加入图片转换----等比缩放
+    public static ImageLoader.ImageListener getImageListener(final ImageView view,final int w,final int h, final String url,
+                                                             final int defaultImageResId, final int errorImageResId, final ImageShapeType type) {
+        return new ImageLoader.ImageListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (errorImageResId != 0) {
+                    view.setImageResource(errorImageResId);
+                }
+            }
+
+            @Override
+            public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
+                if (view != null && url.equals(view.getTag().toString())
+                        && response != null && response.getBitmap() != null) {
+                    switch (type) {
+                        case ROUND:
+                            view.setImageBitmap(BitmapTools.toRound(response.getBitmap()));
+                            break;
+                        case ROUNDCORNER:
+                            view.setImageBitmap(BitmapTools.toRoundCorner(response.getBitmap(), BITMAP_ROUNDCORNER));
+                            break;
+                        default:
+                            view.setImageBitmap(BitmapTools.zoomBitmapDeng(response.getBitmap(),w,h));
+                            break;
+                    }
+                } else if (defaultImageResId != 0) {
+                    view.setImageResource(defaultImageResId);
+                }
+            }
+        };
+    }
+
     /***********************************************************
      * Description: 取消网络请求
      *
@@ -175,5 +209,16 @@ public class HttpRequest {
 
 //        可以指定载入图片是原始矩形还是圆角矩形，还是圆形
         imageLoader.get(imageurl, getImageListener(view, imageurl, defaultImageResId, errorImageResId, type));
+    }
+
+    /**
+     * 等比缩放到一定的大小
+     */
+    public static void requestImage(final String imageurl, final ImageView view,int w,int h,
+                                    final int defaultImageResId, final int errorImageResId, final ImageShapeType type) {
+        ImageLoader imageLoader = RequestInstance.getInstance().getLoader();
+
+//        可以指定载入图片是原始矩形还是圆角矩形，还是圆形
+        imageLoader.get(imageurl, getImageListener(view,w,h, imageurl, defaultImageResId, errorImageResId, type));
     }
 }

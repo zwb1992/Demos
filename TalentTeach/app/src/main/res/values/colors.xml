@@ -5,6 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="transparent">#00000000</color>
     <color name="black">#000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_30">#56000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_60">#99000000</color>
     <color name="blue">#303F9F</color>
     <color name="activity_bg">#ccc</color>
     <!--分割线-->
@@ -24,9 +29,18 @@
     <!--主题色-->
     <color name="c8">#26b14c</color>
     <!--浅绿色  按钮被点击状态-->
-    <color name="c11">#5e996e</color>
+    <color name="c11">#5dd7c0</color>
 
     <color name="text_color_black">#333333</color>
     <color name="text_color_grey">#909090</color>
     <color name="white_20">#33ffffff</color>
+    <color name="gray">#f0f0f4</color>
+    <color name="text_color">#333333</color>
+    <color name="text_color_6">#666666</color>
+    <color name="text_color_9">#999999</color>
+    <color name="text_color_4">#444444</color>
+    <color name="hint_color">#cccccc</color>
+    <color name="enable_color">#999</color>
+    <color name="tip_yellow_color">#FD8608</color>
+    <color name="dianping">#e0e0e0</color>
 </resources>

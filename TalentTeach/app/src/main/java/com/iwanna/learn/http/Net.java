@@ -67,4 +67,18 @@ public class Net {
         HttpRequest.requestImage(imageurl,
                 view, defaultImageResId, errorImageResId, type);
     }
+
+    /**
+     * 等比缩放到一定的大小
+     * @param imageurl
+     * @param view
+     * @param defaultImageResId
+     * @param errorImageResId
+     * @param type
+     */
+    public static void imageLoader(final String imageurl, final ImageView view,int w,int h,
+                                   final int defaultImageResId, final int errorImageResId, final HttpRequest.ImageShapeType type) {
+        HttpRequest.requestImage(imageurl,
+                view,w,h, defaultImageResId, errorImageResId, type);
+    }
 }

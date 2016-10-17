@@ -13,8 +13,5 @@ import com.zwb.zwbframe.mvvm.AbstractViewMode;
  * Date:2016/6/13
  ***************************************/
 public class MineFragmentVM extends AbstractViewMode<MineFragment> {
-    public void goPersonInfo(){
-        Intent intent = new Intent(getView().getActivity(), PersonInfoActivity.class);
-        getView().startActivity(intent);
-    }
+
 }

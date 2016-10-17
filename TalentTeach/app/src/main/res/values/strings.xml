@@ -9,14 +9,14 @@
     <string name="mine_join">我参加的活动</string>
     <string name="accounta_security">账号与安全</string>
     <string name="service_tel">客服电话</string>
-    <string name="start_teach">我要开课</string>
+    <string name="start_teach">我的开课表</string>
     <string name="face">头像</string>
     <string name="nickname">昵称</string>
     <string name="address">居住区域</string>
     <string name="name">学员姓名</string>
     <string name="sex">学员性别</string>
     <string name="age">学员年龄</string>
-    <string name="introduce">学员介绍</string>
+    <string name="introduce">学员偏好</string>
     <string name="cancel">取消</string>
     <string name="save">保存</string>
     <string name="male">男</string>
@@ -33,5 +33,115 @@
     <string name="title">标题</string>
     <string name="refresh_fails">刷新失败,请稍后重试!</string>
     <string name="item_jigou">专筑有故事的培训教育机构</string>
+    <string name="no_data">暂无数据</string>
+    <string name="likes">学员偏好</string>
 
+
+    <!--login-->
+    <string name="phone">手机号</string>
+    <string name="phone_cannot_be_null">手机号码不能为空!</string>
+    <string name="password">密码</string>
+    <string name="password_cannot_be_null">密码不能为空!</string>
+    <string name="pl_input_phone">请输入手机号</string>
+    <string name="pl_input_password">请输入密码</string>
+    <string name="forget_password">忘记密码？</string>
+    <string name="login">登录</string>
+    <string name="login_success">登录成功!</string>
+    <string name="no_account">没有账号,</string>
+    <string name="regist_soon">立即注册</string>
+    <string name="change">更改</string>
+    <string name="accountSafe">账号与安全</string>
+
+    <!--regist-->
+    <string name="pl_input_nickname">请输入昵称</string>
+    <string name="nickname_cannot_be_null">昵称不能为空!</string>
+    <string name="vercode">验证码</string>
+    <string name="vercode_cannot_be_null">验证码不能为空!</string>
+    <string name="vercode_is_error">验证码错误!</string>
+    <string name="pl_input_vercode">请输入验证码</string>
+    <string name="get_vercode">获取验证码</string>
+    <string name="get_vercode_success">获取验证码成功!</string>
+    <string name="r_get_varcode">%s秒后重新获取</string>
+    <string name="pl_input_login_pwd">请输入登录密码</string>
+    <string name="pl_confirm_login_pwd">请确认登录密码</string>
+    <string name="pwd_not_be_same">两次输入的密码不相等,请重新输入!</string>
+    <string name="regist">注册</string>
+    <string name="regist_successed">注册成功!</string>
+    <string name="have_account">有账号,</string>
+    <string name="login_soon">直接登录</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="account_login">账号登录</string>
+    <string name="account_regist">账号注册</string>
+
+    <!--account safe-->
+    <string name="change_phone">更改手机</string>
+    <string name="chang_phone_successed">更改手机成功!</string>
+    <string name="change_pwd">更改密码</string>
+    <string name="change_pwd_successed">更改密码成功!</string>
+    <string name="current_pwd">当前密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="confirm_new_pwd">确认新密码</string>
+    <string name="pwd_tip">密码长度至少6个字符，最多32个字符</string>
+    <string name="confirm">确定</string>
+
+    <!--activity-->
+    <string name="joined">已报名</string>
+    <string name="shixiao">已失效</string>
+    <string name="activity_name">活动专题:</string>
+    <string name="activity_time">活动时间:</string>
+    <string name="activity_address">活动地点</string>
+    <string name="activity_details">活动详情</string>
+    <string name="activity_details1">活动详情:</string>
+    <string name="activity_tip">提示：父母与孩子一同参加，谢绝临时到场参加活动。</string>
+    <string name="activity_phone">请输入您的手机号</string>
+    <string name="name1">姓名</string>
+    <string name="name2">请输入您的姓名</string>
+    <string name="join_people">参与人数</string>
+    <string name="input_join_people">请选择参与人数</string>
+    <string name="free_join">免费报名</string>
+    <string name="join_successed">报名成功!</string>
+
+    <!--forget pwd-->
+    <string name="complete">完成</string>
+    <string name="forget_password1">重置密码</string>
+    <string name="find_password_successed">重置密码成功!</string>
+
+    <!--faxian-->
+    <string name="coursFenlei">课程</string>
+    <string name="banxinFenlei">班型</string>
+    <string name="ageFenlei">年龄</string>
+    <string name="courseList">课程列表</string>
+
+    <!--课程详情-->
+    <string name="ask_phone">咨询电话</string>
+    <string name="ask_phone_is_null">咨询电话为空!</string>
+    <string name="entry_soon">立即报名</string>
+    <string name="course_describe">课程描述</string>
+    <string name="teach_site">教学环境</string>
+    <string name="course_tip">提示：该课程提供预约试听，赶快预约吧。</string>
+    <string name="fabiao">发表评论</string>
+    <string name="fabiao_is_not_null">评论内容不能为空!</string>
+    <string name="collect_successed">收藏成功!</string>
+    <string name="cancel_collect">已取消收藏!</string>
+    <string name="dianping_successed">发表评论成功!</string>
+
+    <!--我的开课表-->
+    <string name="tip">提示：</string>
+    <string name="tip_content">暂未开通手机添加课程功能，请在网页上新增课程</string>
+
+    <!--报名-->
+    <string name="entry">报名</string>
+    <string name="entry_successed">报名成功!</string>
+    <string name="entry_failed">报名失败!</string>
+    <string name="xingming">姓名</string>
+    <string name="input_xingming">请输入姓名</string>
+    <string name="age1">年龄</string>
+    <string name="input_age1">请输入年龄</string>
+    <string name="sex1">性别</string>
+    <string name="select">请选择</string>
+    <string name="contact">联系电话</string>
+    <string name="input_stu_info">请输入学员信息!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

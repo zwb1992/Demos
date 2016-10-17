@@ -70,11 +70,23 @@ public class FragmentFactory {
      */
     public static void hideFragments(FragmentTransaction ft) {
         for (int i = 0;i<4;i++){
-            BaseFragment fragment = (BaseFragment) fmHashMap.get(i);
+            Fragment fragment = fmHashMap.get(i);
             if (fragment != null) {
                 ft.hide(fragment);
             }
+//            BaseFragment fragment = (BaseFragment) fmHashMap.get(i);
+//            if (fragment != null) {
+//                ft.hide(fragment);
+//            }
         }
+    }
+
+    public static <T extends Fragment> T getFragment(int i){
+        if(fmHashMap.get(i) == null){
+            return null;
+        }
+        T fragment = (T) fmHashMap.get(i);
+        return fragment;
     }
 
     /**

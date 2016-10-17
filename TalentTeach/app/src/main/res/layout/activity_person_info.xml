@@ -2,52 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activity_bg"
+    android:background="@color/gray"
     android:id="@+id/ll_personinfo"
     android:orientation="vertical">
+    <include layout="@layout/layout_topview"/>
 
-    <RelativeLayout
-        android:id="@+id/rl_top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/change_top">
-
-        <TextView
-            android:id="@+id/tv_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/person_info"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title" />
-
-        <TextView
-            android:id="@+id/tv_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text"
-            android:visibility="gone" />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
 
     <LinearLayout
         android:id="@+id/ll_info"
@@ -55,6 +14,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
         android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -62,19 +24,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
             android:text="@string/face" />
 
         <ImageView
             android:id="@+id/iv_face"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="67.5dp"
+            android:layout_height="67.5dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/default_face_50" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
+            android:src="@mipmap/right" />
     </LinearLayout>
 
     <View
@@ -88,11 +56,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
         android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
             android:text="@string/nickname" />
 
         <TextView
@@ -101,109 +75,32 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="周杰伦" />
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color_6"
+            android:drawableRight="@mipmap/right"
+            android:drawablePadding="30.5dp"
+             />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <LinearLayout
-        android:id="@+id/ll_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/layout_click"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/address" />
-
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="深圳南山区白石洲东四方" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
-
-    <LinearLayout
-        android:id="@+id/ll_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/layout_click"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="小周周" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
 
     <LinearLayout
         android:id="@+id/ll_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
+        android:layout_marginTop="25dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text"
             android:text="@string/sex" />
 
         <TextView
@@ -212,37 +109,37 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="小周周" />
+            android:textColor="@color/text_color_6"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:textSize="@dimen/text"
+            android:drawableRight="@mipmap/right"
+            android:drawablePadding="30.5dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginTop="10dp"
         android:background="@color/divider" />
-
     <LinearLayout
         android:id="@+id/ll_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
         android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
             android:text="@string/age" />
 
         <TextView
@@ -251,24 +148,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="6" />
+            android:textColor="@color/text_color_6"
+            android:drawablePadding="30.5dp"
+            android:drawableRight="@mipmap/right" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
         android:background="@color/divider" />
 
     <LinearLayout
@@ -277,11 +165,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
         android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
             android:text="@string/introduce" />
 
         <TextView
@@ -290,17 +184,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="按时打算打算打算让分手放到地方的所得税负担撒大大飒飒的" />
+            android:drawablePadding="30.5dp"
+            android:drawableRight="@mipmap/right"
+            android:textColor="@color/text_color_6"
+            />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
 </LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HistogramView">
+        <!--x轴字体大小-->
+        <attr name="textSize" format="dimension"/>
+        <!--文字颜色-->
+        <attr name="textColor" format="color"/>
+        <!--柱型之间的间隔-->
+        <attr name="space" format="dimension"/>
+        <!--柱状颜色-->
+        <attr name="histogram_color" format="color"/>
+        <!--默认柱子的高度-->
+        <attr name="default_height" format="dimension"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:lct="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zwb.linechartdemo2.MainActivity">
+
+    <com.zwb.linechartdemo2.LineChartView
+        android:id="@+id/lct"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:layout_height="120dp"
+        lct:textSize="12sp"
+        lct:textColor="@color/textColor"
+        lct:shadow_color="@color/check_blue_50"
+        lct:lineChartView_color="@color/check_blue"/>
+</RelativeLayout>

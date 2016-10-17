@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.iwanna.learn.view.activity.JigouOrTeacherActivity">
+
+    <include layout="@layout/layout_topview"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/gray"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/text_color_4"
+        android:textSize="15sp"
+        android:layout_margin="20dp"
+        tools:text="沉吟舞蹈"/>
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_6"
+        android:textSize="@dimen/text_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        tools:text="沉吟舞蹈"/>
+</LinearLayout>

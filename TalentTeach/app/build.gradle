@@ -11,6 +11,46 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+        debug { storeFile file("debug.keystore") }
+
+        release {
+            storeFile file('iwannalearn.jks')
+            storePassword 'iwannalearn#3'
+            keyAlias 'iwannalearn'
+            keyPassword 'iwannalearn#3'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            manifestPlaceholders = [AMAP_KEY: "ccd451d0715621399903a7d09865ce75"]
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFile('proguard.cfg')
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [AMAP_KEY: "c5f296e02eb8a39b0be475578399fa93"]
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+    dexOptions {
+        incremental true
+        preDexLibraries false
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -22,9 +62,12 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
     compile project(':zwbframe')
     compile project(':imagepickerlib')
     compile project(':paylibrary')
     compile project(':pulltorefreshlibrary')
+    compile files('libs/AMap_2DMap_V2.9.0_20160525.jar')
+    compile files('libs/AMap_Location_V2.7.0_20160726.jar')
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:support-v4:23.3.0'
 }

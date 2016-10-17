@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iwanna.learn.view.activity.MyJoinedListActivity">
+
     <com.zwb.pulltorefreshlibrary.refreshlayout.RefreshLayout
         android:id="@+id/rl_refresh"
         android:layout_width="match_parent"
@@ -10,6 +13,9 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            />
     </com.zwb.pulltorefreshlibrary.refreshlayout.RefreshLayout>
-</LinearLayout>
+    <include
+        layout="@layout/no_data"/>
+</RelativeLayout>

@@ -1,111 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activity_bg"
+    android:orientation="vertical"
+    android:background="@color/gray"
     tools:context="com.iwanna.learn.view.activity.ChangeInfoActivity">
 
-    <RelativeLayout
-        android:id="@+id/rl_top"
+<include layout="@layout/layout_topview"/>
+
+
+    <EditText
+        android:id="@+id/ed_name"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:textSize="@dimen/text"
+        android:textColor="@color/text_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/change_top">
-
-        <TextView
-            android:id="@+id/tv_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title" />
-
-        <TextView
-            android:id="@+id/tv_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rl_top"
         android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/ed_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="textMultiLine" />
-
-        <ImageView
-            android:id="@+id/iv_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/arrow" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_tip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ll_name"
-        android:background="@color/white"
-        android:gravity="right"
-        android:text="28"
-        android:textSize="@dimen/tip" />
-
-    <RadioGroup
-        android:id="@+id/rg_sex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rl_top"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <RadioButton
-            android:id="@+id/rb_male"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rb_select"
-            android:button="@null"
-            android:gravity="center_vertical"
-            android:padding="10dp"
-            android:text="@string/male"
-            android:textSize="@dimen/text" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider" />
-
-        <RadioButton
-            android:id="@+id/rb_female"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rb_select"
-            android:button="@null"
-            android:gravity="center_vertical"
-            android:padding="10dp"
-            android:text="@string/female"
-            android:textSize="@dimen/text" />
-    </RadioGroup>
-</RelativeLayout>
+        android:hint="@string/pl_input_nickname"/>
+</LinearLayout>

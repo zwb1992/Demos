@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HistogramView">
+        <!--x轴字体大小-->
+        <attr name="xTextSize" format="dimension"/>
+        <!--y轴字体大小-->
+        <attr name="yTextSize" format="dimension"/>
+        <!--x轴颜色-->
+        <attr name="xColor" format="color"/>
+        <!--y轴颜色-->
+        <attr name="yColor" format="color"/>
+        <!--文字颜色-->
+        <attr name="textColor" format="color"/>
+        <!--分割线的高度-->
+        <attr name="divider_height" format="dimension"/>
+        <!--y轴柱状宽度-->
+        <attr name="yWidth" format="dimension"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineChartView">
+        <!--字体大小-->
+        <attr name="textSize" format="dimension"/>
+        <!--文字颜色-->
+        <attr name="textColor" format="color"/>
+        <!--折线颜色-->
+        <attr name="lineChartView_color" format="color"/>
+        <!--阴影颜色-->
+        <attr name="shadow_color" format="color"/>
+    </declare-styleable>
+</resources>

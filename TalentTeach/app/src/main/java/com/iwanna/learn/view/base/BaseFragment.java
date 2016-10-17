@@ -6,6 +6,8 @@ import android.view.View;
 
 import com.iwanna.learn.http.Net;
 import com.iwanna.learn.http.NetApi;
+import com.iwanna.learn.utils.ProgressDialog;
+import com.zwb.zwbframe.event.NetEvent;
 import com.zwb.zwbframe.mvvm.AbstractBaseFragment;
 import com.zwb.zwbframe.mvvm.AbstractViewMode;
 import com.zwb.zwbframe.mvvm.IView;
@@ -21,9 +23,18 @@ public abstract class BaseFragment<T extends IView, VM extends AbstractViewMode<
     private Context context;
     private Activity activity;
 
+    protected ProgressDialog progressDialog;
+
     @Override
     public boolean useButterknife() {
         return true;
+    }
+
+    public NetApi net(boolean flag){
+        if(flag && progressDialog != null){
+            progressDialog.show();
+        }
+        return Net.get(this);
     }
 
     @Override
@@ -31,8 +42,31 @@ public abstract class BaseFragment<T extends IView, VM extends AbstractViewMode<
         ButterKnife.bind(this, mRootView);
         context = getActivity();
         activity = getActivity();
+        progressDialog = new ProgressDialog(activity);
     }
     public NetApi net(){
         return Net.get(this);
+    }
+
+    @Override
+    public void netSuccess(NetEvent netEvent) {
+        super.netSuccess(netEvent);
+        dissMissDialog();
+    }
+
+    @Override
+    public boolean netfailed(NetEvent netEvent) {
+        dissMissDialog();
+        return super.netfailed(netEvent);
+    }
+    public void showDialog(){
+        if(progressDialog != null) {
+            progressDialog.show();
+        }
+    }
+    public void dissMissDialog(){
+        if(progressDialog != null) {
+            progressDialog.dismiss();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.iwanna.learn.view.activity;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
@@ -9,13 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.maps2d.AMapUtils;
+import com.amap.api.maps2d.model.LatLng;
 import com.iwanna.learn.R;
-import com.iwanna.learn.http.Net;
+import com.iwanna.learn.Service.LocationService;
 import com.iwanna.learn.utils.FragmentFactory;
 import com.iwanna.learn.utils.SystemBarUtils;
 import com.iwanna.learn.view.base.BaseActivity;
+import com.iwanna.learn.view.fragment.MineFragment;
 import com.iwanna.learn.viewmodel.MainVM;
-import com.zwb.zwbframe.http.HttpRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,6 +46,13 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
+        /**
+         * 启动定位服务
+         */
+        Intent locationIntent = new Intent(this, LocationService.class);
+        startService(locationIntent);
+
         imgBack.setVisibility(View.GONE);
         tvTitle.setBackgroundResource(R.mipmap.logo);
         tvRight.setVisibility(View.VISIBLE);
@@ -51,13 +60,6 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
         fragmentManager = getSupportFragmentManager();
         FragmentFactory.showFragment(0, fragmentManager);
     }
-
-   /* @OnClick(R.id.bt)
-    public void onClick() {
-        image.setTag("https://www.baidu.com/img/bd_logo1.png");
-        Net.imageLoader("https://www.baidu.com/img/bd_logo1.png", image, R.mipmap.ic_launcher, R.mipmap.ic_launcher, HttpRequest.ImageShapeType.ROUND);
-        getViewModel().getExpandData();
-    }*/
 
     @OnClick({R.id.rb_find, R.id.rb_index, R.id.rb_activity, R.id.rb_mine,R.id.tv_right})
     public void onClick(View view) {
@@ -73,9 +75,37 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
                 break;
             case R.id.rb_mine:
                 FragmentFactory.showFragment(3, fragmentManager);
+                MineFragment m = FragmentFactory.getFragment(3);
+                if(m != null){
+                    m.showTeach();
+                }
                 break;
             case R.id.tv_right:
 
+                break;
+        }
+        showTitle(view.getId());
+    }
+    private void showTitle(int id){
+        switch (id){
+            case R.id.rb_index:
+            case R.id.rb_find:
+                tvTitle.setBackgroundResource(R.mipmap.logo);
+                tvTitle.setText("");
+                tvRight.setVisibility(View.VISIBLE);
+                tvRight.setBackgroundResource(R.mipmap.search);
+                break;
+            case R.id.rb_activity:
+                tvTitle.setBackgroundResource(R.color.transparent);
+                tvTitle.setText(R.string.activity);
+                tvTitle.setTextColor(getResources().getColor(R.color.text_color));
+                tvRight.setVisibility(View.GONE);
+                break;
+            case R.id.rb_mine:
+                tvTitle.setBackgroundResource(R.color.transparent);
+                tvTitle.setTextColor(getResources().getColor(R.color.text_color));
+                tvTitle.setText(R.string.mine);
+                tvRight.setVisibility(View.GONE);
                 break;
         }
     }
@@ -105,4 +135,13 @@ public class MainActivity extends BaseActivity<MainActivity, MainVM> {
         return false;
     }
 
+    /**
+     * 计算两点之间的距离
+     * @param stLatLng
+     * @param enLatLng
+     * @return
+     */
+    public static float caculateDistance(LatLng stLatLng, LatLng enLatLng){
+        return AMapUtils.calculateLineDistance(stLatLng,enLatLng);
+    }
 }

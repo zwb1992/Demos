@@ -46,7 +46,7 @@ public class PayActivity extends BaseActivity<PayActivity, PayVM> {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
+        super.initView(savedInstanceState);
     }
 
     @OnClick(R.id.ButtonPay)

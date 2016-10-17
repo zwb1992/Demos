@@ -34,6 +34,7 @@ public class IndexFragmentVM extends AbstractViewMode<IndexFragment> {
     @Override
     public void netSuccess(NetEvent netEvent) {
         super.netSuccess(netEvent);
+        getView().dissMissDialog();
         if(netEvent.whatEqual(request)) {
             List<ExpandInfo> expandInfo = (List<ExpandInfo>) netEvent.getResult();
             Log.i("info", expandInfo.toString());
@@ -47,6 +48,7 @@ public class IndexFragmentVM extends AbstractViewMode<IndexFragment> {
 
     @Override
     public boolean netfailed(NetEvent netEvent) {
+        getView().dissMissDialog();
         if(netEvent.whatEqual(request)){
             handler.postDelayed(runnable,3000);
         }else if(netEvent.whatEqual(jiGouRequest)){

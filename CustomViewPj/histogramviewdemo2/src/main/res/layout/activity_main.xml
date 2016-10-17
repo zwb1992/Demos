@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:hgv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zwb.histogramviewdemo2.MainActivity">
+
+    <com.zwb.histogramviewdemo2.HistogramView
+        android:id="@+id/hgv"
+        android:background="#33403233"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        hgv:textSize="12sp"
+        hgv:textColor="#010"
+        hgv:space="1dp"
+        hgv:default_height="5dp"
+        hgv:histogram_color="#0f0"/>
+</RelativeLayout>

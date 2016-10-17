@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".MyApplication"
@@ -15,7 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,14 +43,72 @@
         <activity
             android:name=".view.activity.PayActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <!-- 微信支付 -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop" />
-        <activity android:name=".view.activity.ExpandActivity"></activity>
+        <activity
+            android:name=".view.activity.ExpandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.RegistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.AccountSafeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ChangePhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ChangePwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ActiivtyDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyJoinedListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyEntryListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyCollectionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyOpenCourseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ForgetPwdActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 如果IDE是Eclipse，此处可将build.gradle中的AMAP_KEY定义拷贝过来。 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="3499571c2b085bd94a6d8e20178abb84" />
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService" />
+        <service
+            android:name=".Service.LocationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".view.activity.CouresDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.JigouOrTeacherActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.EntryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.LikesActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

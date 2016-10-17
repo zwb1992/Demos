@@ -2,14 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activity_bg"
+    android:background="@color/gray"
     android:orientation="vertical">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
+        android:layout_height="20dp"
+        android:background="@color/gray"/>
 
     <LinearLayout
         android:id="@+id/ll_info"
@@ -20,29 +25,38 @@
 
         <ImageView
             android:id="@+id/iv_face"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="67.5dp"
+            android:layout_height="67.5dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/default_face_50" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:gravity="center"
             android:paddingBottom="5dp"
             android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/tv_tel"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/title"
                 android:text="18768763823" />
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/enable_color"
+                android:layout_marginTop="1dp"
+                android:textSize="@dimen/title"
                 android:text="周杰伦" />
         </LinearLayout>
 
@@ -50,78 +64,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/right" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
 
-    <LinearLayout
-        android:id="@+id/ll_start_teach"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider" />
 
         <TextView
             android:id="@+id/tv_start_teach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/layout_click"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:drawableRight="@mipmap/arrow"
+            android:drawableLeft="@mipmap/openclass"
+            android:drawableRight="@mipmap/right"
+            android:visibility="gone"
             android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="25dp"
+            android:drawablePadding="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="12.5dp"
+            android:paddingTop="12.5dp"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
             android:text="@string/start_teach" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
 
     <TextView
         android:id="@+id/tv_collection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/arrow"
+        android:drawableLeft="@mipmap/collection"
+        android:drawableRight="@mipmap/right"
         android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="25dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12.5dp"
+        android:paddingTop="12.5dp"
+        android:textSize="@dimen/text"
+        android:textColor="@color/text_color"
         android:text="@string/mine_collection" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
 
     <TextView
         android:id="@+id/tv_entry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/arrow"
+        android:drawableLeft="@mipmap/joined"
+        android:drawableRight="@mipmap/right"
         android:gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="25dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12.5dp"
+        android:paddingTop="12.5dp"
+        android:textSize="@dimen/text"
+        android:textColor="@color/text_color"
         android:text="@string/mine_entry_form" />
 
     <View
@@ -134,78 +136,58 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/arrow"
+        android:drawableLeft="@mipmap/joined_activity"
+        android:drawableRight="@mipmap/right"
         android:gravity="center_vertical"
+        android:paddingLeft="25dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12.5dp"
+        android:paddingTop="12.5dp"
+        android:textSize="@dimen/text"
+        android:textColor="@color/text_color"
         android:text="@string/mine_join" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
 
     <TextView
         android:id="@+id/tv_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_click"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/arrow"
+        android:drawableLeft="@mipmap/account_safe"
+        android:layout_marginTop="25dp"
+        android:drawableRight="@mipmap/right"
         android:gravity="center_vertical"
+        android:paddingLeft="25dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12.5dp"
+        android:paddingTop="12.5dp"
+        android:textSize="@dimen/text"
+        android:textColor="@color/text_color"
         android:text="@string/accounta_security" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="@color/divider" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="10dp">
 
         <TextView
             android:id="@+id/tv_service_tel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/layout_click"
+            android:drawableLeft="@mipmap/kefu_tel"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@mipmap/right"
             android:gravity="center_vertical"
-            android:text="客服电话  17889273987" />
+            android:paddingLeft="25dp"
+            android:drawablePadding="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="12.5dp"
+            android:paddingTop="12.5dp"
+            android:textSize="@dimen/text"
+            android:textColor="@color/text_color"
+            android:text="客服电话  400-6655-668" />
 
-        <View
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/divider" />
-
-        <ImageView
-            android:id="@+id/call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/divider" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

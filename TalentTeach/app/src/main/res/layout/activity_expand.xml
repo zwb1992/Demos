@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.iwanna.learn.view.activity.ExpandActivity">
+    tools:context="com.iwanna.learn.view.activity.MyJoinedListActivity">
+
     <include layout="@layout/layout_topview"/>
     <com.zwb.pulltorefreshlibrary.refreshlayout.RefreshLayout
         android:id="@+id/rl_refresh"
+        android:layout_below="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            />
     </com.zwb.pulltorefreshlibrary.refreshlayout.RefreshLayout>
-</LinearLayout>
+    <include
+        layout="@layout/no_data"/>
+</RelativeLayout>

@@ -311,10 +311,13 @@ public class BitmapTools {
         float scaleHeight = ((float) h / height);
         float scale = scaleWidth > scaleHeight ? scaleWidth : scaleHeight;
         matrix.postScale(scale, scale);
-        Bitmap newBmp = Bitmap.createBitmap(bitmap, 0, 0, width, height,
+//        Bitmap newBmp = Bitmap.createBitmap(bitmap, 0, 0, width, height,
+//                matrix, true);
+//        bitmap.recycle();
+
+        bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height,
                 matrix, true);
-        bitmap.recycle();
-        return newBmp;
+        return bitmap;
     }
 
     /**

@@ -41,13 +41,13 @@ public class HttpListener implements Response.Listener<String>, Response.ErrorLi
 
     @Override
     public void onResponse(String response) {
-
+        Log.d("info","===response==="+response);
         try {
             netInfo = new NetInfo();
             JSONObject object = new JSONObject(response);
             netInfo.setCode((int) object.get("code"));
             netInfo.setMsg((String) object.get("Message"));
-            netInfo.setData(object.getString("data"));
+            netInfo.setData(object.optString("data"));
         } catch (Exception e) {
             System.out.println(e.toString());
             System.out.println("json parse failed");

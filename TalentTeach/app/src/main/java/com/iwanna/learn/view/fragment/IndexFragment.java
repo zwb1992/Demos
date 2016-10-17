@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,8 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
     ListView listView;
     @Bind(R.id.rl_refresh)
     RefreshLayout rlRefresh;
+    @Bind(R.id.no_data)
+    LinearLayout noData;
 
     private List<ExpandInfo> expandInfoList = new ArrayList<>();
     private List<JiGou> jiGouList = new ArrayList<>();
@@ -57,6 +60,7 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
     @Override
     protected void initView(Bundle savedInstanceState) {
         initAdapter();
+        showDialog();
         getViewModel().getExpandData();
         getViewModel().getJiGouData();
     }
@@ -76,20 +80,25 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
                 Net.imageLoader(Net.NetInstance.IMG_URL+"/"+jiGou.getImg(),imageView,R.mipmap.default_img,R.mipmap.default_img, HttpRequest.ImageShapeType.NORMAL);
             }
         };
+        listView.setEmptyView(noData);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i < expandInfoList.size()){
                     ExpandInfo expandInfo = expandInfoList.get(i);
-//                    Toast.makeText(getActivity(),"===expand===="+expandInfo.toString(),Toast.LENGTH_SHORT).show();
                     Intent hobbyIntent = new Intent(getActivity(), ExpandActivity.class);
-                    hobbyIntent.putExtra("expandInfo",expandInfo);
+                    hobbyIntent.putExtra("type",ExpandActivity.XINGQU);
+                    hobbyIntent.putExtra("id",expandInfo.getStypeId());
+                    hobbyIntent.putExtra("title",expandInfo.getTypeName());
                     startActivity(hobbyIntent);
                 }else if(i > expandInfoList.size()){
                     JiGou jiGou = jiGouList.get(i - expandInfoList.size() - 1);
-                    Toast.makeText(getActivity(),"===jigou===="+jiGou.toString(),Toast.LENGTH_SHORT).show();
-
+                    Intent hobbyIntent = new Intent(getActivity(), ExpandActivity.class);
+                    hobbyIntent.putExtra("type",ExpandActivity.JIGOU);
+                    hobbyIntent.putExtra("id",jiGou.getAgencyID());
+                    hobbyIntent.putExtra("title",jiGou.getAgencyName());
+                    startActivity(hobbyIntent);
                 }
             }
         });
@@ -127,7 +136,6 @@ public class IndexFragment extends BaseFragment<IndexFragment, IndexFragmentVM> 
             TextView tvContent = (TextView)view.findViewById(R.id.tv_content);
             tvContent.setText(expandInfo.getIntroduce());
             ImageView imageView = (ImageView)view.findViewById(R.id.img_expand);
-            Log.i("info","============="+Net.NetInstance.IMG_URL+expandInfo.getImg());
             imageView.setTag(Net.NetInstance.IMG_URL+expandInfo.getImg());
             Net.imageLoader(Net.NetInstance.IMG_URL+expandInfo.getImg(),imageView,R.mipmap.default_img,R.mipmap.default_img, HttpRequest.ImageShapeType.NORMAL);
             listView.addHeaderView(view);

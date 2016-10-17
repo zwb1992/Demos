@@ -73,17 +73,23 @@ public class NetCallBack implements HttpCallBack {
                                 netRequest.getNetEventListener().netSuccess(netEvent);
                             }
                         } else {
-                            if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.ERROR) {
-                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "服务器未响应", Toast.LENGTH_SHORT).show();
-                            } else if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.PARSE_ERROR) {
-                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "Json解析出错", Toast.LENGTH_SHORT).show();
-                            } else if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.NOT_NET){
-                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "无网络连接", Toast.LENGTH_SHORT).show();
-                            }else if(!netRequest.getNetEventListener().netfailed(netEvent)){
+                            if(!netRequest.getNetEventListener().netfailed(netEvent)){
                                 if(!TextUtils.isEmpty(netEvent.getRepMsg())){
+//                                    DrawerToast.getInstance(ApplicationManager.getApplication().getApplicationContext()).show(netEvent.getRepMsg());
                                     Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), netEvent.getRepMsg(), Toast.LENGTH_SHORT).show();
                                 }
                             }
+//                            if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.ERROR) {
+//                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "服务器未响应", Toast.LENGTH_SHORT).show();
+//                            } else if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.PARSE_ERROR) {
+//                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "Json解析出错", Toast.LENGTH_SHORT).show();
+//                            } else if (netEvent.getStatus() == NetRequest.RESPONSE_STATUS.NOT_NET){
+//                                Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), "无网络连接", Toast.LENGTH_SHORT).show();
+//                            }else if(!netRequest.getNetEventListener().netfailed(netEvent)){
+//                                if(!TextUtils.isEmpty(netEvent.getRepMsg())){
+//                                    Toast.makeText(ApplicationManager.getApplication().getApplicationContext(), netEvent.getRepMsg(), Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
                         }
                     }
                 });

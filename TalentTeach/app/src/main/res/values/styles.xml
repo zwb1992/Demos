@@ -4,14 +4,14 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:textColorHint">@color/activity_bg</item>
+        <item name="android:textColorHint">@color/hint_color</item>
     </style>
     <!--  设置了 android:windowIsFloating=true 就不需要去设置屏幕亮度了 backgroundDimEnabled:设置背景是否变灰
   -->
