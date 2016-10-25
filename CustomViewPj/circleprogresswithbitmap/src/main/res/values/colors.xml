@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="health_red">#FB2320</color>
+    <color name="health_orange">#FB9680</color>
+    <color name="health_red_50">#40FB2320</color>
+    <color name="health_grey">#686868</color>
+</resources>
