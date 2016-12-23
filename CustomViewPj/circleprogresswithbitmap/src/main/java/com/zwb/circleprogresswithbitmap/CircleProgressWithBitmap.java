@@ -170,7 +170,7 @@ public class CircleProgressWithBitmap extends View {
         isStart = true;
         progress = 100;
         valueAnimator = ValueAnimator.ofFloat(0,progress);
-        valueAnimator.setDuration(1500);
+        valueAnimator.setDuration(1500);//设置动画一次执行的时间
         valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -197,7 +197,7 @@ public class CircleProgressWithBitmap extends View {
     }
 
     /**
-     * 设置图片
+     * 设置显示的图片
      * @param bitmap
      */
     public void setBitmap(Bitmap bitmap){
