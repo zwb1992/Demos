@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView)findViewById(R.id.recycleView);
         initData();
+        recyclerView.setHasFixedSize(true);//设置固定大小
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         button = (Button)findViewById(R.id.bt);
         button.setOnClickListener(new View.OnClickListener() {

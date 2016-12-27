@@ -45,11 +45,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         ViewGroup.LayoutParams lp = holder.imageView.getLayoutParams();
         lp.height = mHeights.get(position);
         lp.width = (int)(mContext.getResources().getDisplayMetrics().widthPixels/2.0f);
-
+        Log.e("info","====height====="+lp.height);
+        Log.e("info","====width====="+lp.width);
         holder.imageView.setLayoutParams(lp);
         Glide.with(mContext)
                 .load(mList.get(position))
-                .placeholder(R.mipmap.cover)
+                .placeholder(R.mipmap.ic_launcher)
+                .override(lp.width,lp.height)
+                .centerCrop()
                 .into(holder.imageView);
         if (mOnItemClickLitener != null) {
             holder.imageView.setOnClickListener(new View.OnClickListener() {
