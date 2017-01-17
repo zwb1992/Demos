@@ -1,4 +1,4 @@
-include ':app', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':rxjavademo', ':databindingdemo', ':reflectdemo2', ':viewpagerindicator', ':viewpagerindictorlibrary', ':calendardemo', ':zxinglibrary', ':zxingdemo', ':wheelviewdemo', ':circleprogressdemo', ':blutoothdemo', ':bluetoothdemo2', ':titlebardemo', ':typefacedemo', ':activityfragmentdemo', ':bluetoothdemo3', ':bluetoothdemo4', ':zbardemo', ':glidedemo', ':foregroundservicedemo'
+include ':app', ':recyclerviewdemo', ':eventbusdemo', ':enumdemo', ':rxjavademo', ':databindingdemo', ':reflectdemo2', ':viewpagerindicator', ':viewpagerindictorlibrary', ':calendardemo', ':zxinglibrary', ':zxingdemo', ':wheelviewdemo', ':circleprogressdemo', ':blutoothdemo', ':bluetoothdemo2', ':titlebardemo', ':typefacedemo', ':activityfragmentdemo', ':bluetoothdemo3', ':bluetoothdemo4', ':zbardemo', ':glidedemo', ':foregroundservicedemo', ':timezonedemo'
 include ':refreshdemo', ':toucheventdemo1', ':toucheventdemo2', ':butterknifedemo1', ':butterknifedemo2', ':butterknifedemo3'
 include ':dynamicproxydemo', ':reflectdemo', ':reflectannotiondemo', ':reflectannotionproxy'
 include ':mvpdemo', ':mvpdemo2', ':mvvm'
