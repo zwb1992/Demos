@@ -1,1 +1,1 @@
-include ':app', ':sortlistviewdemo', ':histogramviewdemo', ':linechartdemo', ':histogramviewdemo2', ':linechartdemo2', ':circleprogresswithbitmap'
+include ':app', ':sortlistviewdemo', ':histogramviewdemo', ':linechartdemo', ':histogramviewdemo2', ':linechartdemo2', ':circleprogresswithbitmap', ':strokecircle', ':switchbutton'
