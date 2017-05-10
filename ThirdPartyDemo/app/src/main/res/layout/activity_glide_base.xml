@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_glide_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zwb.thirdpartydemo.activity.GlideBaseActivity">
+
+    <include layout="@layout/layout_topview"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载网络图片"
+                />
+            <ImageView
+                android:id="@+id/img_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载资源图片"
+                />
+            <ImageView
+                android:id="@+id/img_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载本地图片"
+                />
+            <ImageView
+                android:id="@+id/img_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载gif图片"
+                />
+            <ImageView
+                android:id="@+id/img_4"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载资源gif"
+                />
+            <ImageView
+                android:id="@+id/img_5"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载本地gif"
+                />
+            <ImageView
+                android:id="@+id/img_6"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="加载本地小视频快照"
+                />
+            <ImageView
+                android:id="@+id/img_7"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="先加载缩略图，再加载原图"
+                />
+            <ImageView
+                android:id="@+id/img_8"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="先建立一个缩略图，然后先加载缩略图，再加载原图"
+                />
+            <ImageView
+                android:id="@+id/img_9"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

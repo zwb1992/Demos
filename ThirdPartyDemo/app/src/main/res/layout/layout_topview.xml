@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_top"
+    android:layout_height="@dimen/action_bar_height"
+    android:background="@color/blue"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="14dp"
+        android:visibility="gone"
+        android:src="@drawable/back_select"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title"
+        android:text="常用知识库" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="18dp"
+        />
+    <ImageView
+        android:id="@+id/img_right"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="13dp"
+        />
+</RelativeLayout>

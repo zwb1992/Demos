@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ok_http"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zwb.thirdpartydemo.activity.OkHttpActivity">
+
+    <include layout="@layout/layout_topview"/>
+
+    <Button
+        android:id="@+id/bt_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GET请求"/>
+
+    <Button
+        android:id="@+id/bt_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST请求"/>
+
+    <Button
+        android:id="@+id/bt_post_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST 文件请求"/>
+
+    <Button
+        android:id="@+id/bt_post_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST 表单请求"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求的返回结果"/>
+</LinearLayout>

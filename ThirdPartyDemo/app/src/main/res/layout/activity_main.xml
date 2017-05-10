@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray7"
+    tools:context="com.zwb.thirdpartydemo.activity.MainActivity">
+
+    <include layout="@layout/layout_topview"/>
+    <FrameLayout
+        android:id="@+id/fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_common"
+            style="@style/main_radio"
+            android:checked="true"
+            android:drawableTop="@drawable/n_health_center_select"
+            android:text="常用框架" />
+
+        <RadioButton
+            android:id="@+id/rb_thirdParty"
+            style="@style/main_radio"
+            android:drawableTop="@drawable/n_gps_select"
+            android:text="第三方" />
+
+        <RadioButton
+            android:id="@+id/rb_custom"
+            style="@style/main_radio"
+            android:drawableTop="@drawable/n_person_center_select"
+            android:text="自定义控件" />
+
+        <RadioButton
+            android:id="@+id/rb_orther"
+            style="@style/main_radio"
+            android:drawableTop="@drawable/n_person_center_select"
+            android:text="其他" />
+    </RadioGroup>
+</LinearLayout>

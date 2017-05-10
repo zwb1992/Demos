@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <color name="transparent">#00000000</color>
+        <color name="white">#FFFFFF</color>
+        <color name="black">#000000</color>
+        <color name="grey">#333333</color>
+        <color name="global_bg">#9000</color>
+        <color name="color_green_01d9ae">#01D9AE</color>
+        <color name="color_blue_0888ff">#0888ff</color>
+        <color name="color_gray_d9d9d9">#d9d9d9</color>
+        <color name="action_bar_tittle_color_555555">#555555</color>
+        <color name="grey_white">#F7F7F7</color>
+        <color name="grey_white_has_alpha">#66FAFAFA</color>
+        <color name="color_network_bar_bg_ee4b62">#ee4b62</color>
+        <color name="color_black_333333">#333333</color>
+        <color name="color_grey_999999">#999999</color>
+        <color name="color_grey_888888">#888888</color>
+        <color name="color_activity_blue_bg">#f7389fff</color>
+        <color name="color_green_00ae8c">#00ae8c</color>
+        <color name="split_line_grey_color_d9d9d9">#D9D9D9</color>
+        <color name="green_4DC0A4">#4DC0A4</color>
+        <color name="gray7">#c5c4c4</color>
+        <color name="GreyWhite">#F7F7F7</color>
+        <color name="color_register_text_normal_1ca086">#1ca086</color>
+        <color name="color_register_text_normal_246b61">#246b61</color>
+        <color name="color_register_text_disable_39b79d">#39b79d</color>
+        <color name="im_list_select_hover">#dbdbdb</color>
+        <color name="color_aaaaaa_content_text">#ffaaaaaa</color>
+        <color name="title_color_01d9ae">#01D9AE</color>
+        <color name="color_b3b3b3">#b3b3b3</color>
+        <color name="color_green_disable">#a2efe0</color>
+        <color name="color_green_00d3a9">#ff00D3A9</color>
+        <color name="color_red_ccfa3c55">#ccfa3c55</color>
+        <color name="color_black_b3000000">#b3000000</color>
+        <color name="color_white_66ffffff">#66ffffff</color>
+        <color name="color_white_ffffffff">#ffffffff</color>
+        <color name="color_blue_1081ea">#1081ea</color>
+        <color name="color_grey_eaeaea">#eaeaea</color>
+        <color name="color_green_4bbda2">#4bbda2</color>
+        <color name="color_yellow_fcf3cd">#fcf3cd</color>
+        <color name="color_blue_3a9efb">#3a9efb</color>
+        <color name="color_green_89fbff">#89fbff</color>
+
+        <!--Login-->
+        <color name="login_bt_clicked">#1974BC</color>
+        <color name="login_bt_normal">#3D9FE8</color>
+        <color name="black_10">#1A000000</color>
+        <color name="black_20">#33000000</color>
+        <color name="black_30">#56000000</color>
+        <color name="black_40">#66000000</color>
+        <color name="black_60">#99000000</color>
+        <color name="white_20">#33ffffff</color>
+        <color name="white_40">#66ffffff</color>
+        <color name="white_60">#99ffffff</color>
+        <color name="blue_weak">#5293C5</color>
+        <color name="blue_weak1">#6cba96</color>
+        <color name="blue_click">#1974BC</color>
+        <color name="blue_click_50">#801974BC</color>
+        <color name="blue_normal">#3d9fe8</color>
+        <color name="blue_normal_60">#993d9fe8</color>
+        <color name="blue_normal_50">#803d9fe8</color>
+        <color name="blue_normal_40">#643d9fe8</color>
+        <color name="blue_normal_30">#483d9fe8</color>
+        <color name="blue_normal_25">#403d9fe8</color>
+        <color name="blue_normal_20">#323d9fe8</color>
+        <color name="blue_normal_15">#243d9fe8</color>
+        <color name="blue_normal_10">#163d9fe8</color>
+        <color name="color_red_f04c62">#f04c62</color>
+
+
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue">#303F9F</color>
+    <color name="hint_text">#80000000</color>
+    <!--分割线-->
+    <color name="divider">#dcdcdc</color>
+
+    <!--条目点击后的颜色-->
+    <color name="layout_clicked">#D9D9D9</color>
+    <!--修改信息顶部颜色-->
+    <color name="change_top">#333</color>
+    <!--弹窗阴影背景-->
+    <color name="shadow_bg">#3000</color>
+    <!--导航栏、状态栏、页内背景、搜索栏、弹窗-->
+    <color name="c1">#ffffff</color>
+    <!--标题和正文文字-->
+    <color name="c7">#333333</color>
+    <!--主题色-->
+    <color name="c8">#26b14c</color>
+    <!--浅绿色  按钮被点击状态-->
+    <color name="c11">#5e996e</color>
+    <color name="mango">#f76a23</color>
+    <color name="fence_bg">#66f76a23</color>
+    <color name="fence_bold">#99f3787b</color>
+
+    <!--ZXing-->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+
+    <color name="activity_bg">#EFEFF4</color>
+    <color name="check_blue">#199870</color>
+    <color name="check_blue_50">#40199870</color>
+    <color name="check_click">#198408</color>
+    <color name="bt_click">#800404</color>
+    <color name="bt_normal">#be343a</color>
+    <color name="email_color">#2a3076</color>
+    <color name="health_rb_normal">#e7e6eb</color>
+    <color name="theme_color">#404648</color>
+
+    <color name="health_red">#FB2320</color>
+    <color name="health_orange">#FB9680</color>
+    <color name="health_red_50">#40FB2320</color>
+    <color name="health_grey">#686868</color>
+    <color name="navy_blue">#147AE9</color>
+
+</resources>

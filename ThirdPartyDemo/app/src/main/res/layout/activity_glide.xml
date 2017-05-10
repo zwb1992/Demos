@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_glide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zwb.thirdpartydemo.activity.GlideActivity">
+
+    <include layout="@layout/layout_topview"/>
+
+    <Button
+        android:id="@+id/bt_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="基本方法使用"/>
+
+    <Button
+        android:id="@+id/bt_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RecylerView中加载网络图片"/>
+
+    <Button
+        android:id="@+id/bt_transfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="图片变换"/>
+</LinearLayout>
