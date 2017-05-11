@@ -19,5 +19,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="btPrimaryColor"
+        android:layout_marginTop="20dp"
         android:text="PrimaryColor"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="btColorMatrix"
+        android:text="ColorMatrix"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="btPixelsEffect"
+        android:text="PixelsEffect"/>
 </LinearLayout>
