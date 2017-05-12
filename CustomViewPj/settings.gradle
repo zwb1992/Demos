@@ -1,2 +1,2 @@
-include ':app', ':sortlistviewdemo', ':histogramviewdemo', ':linechartdemo', ':histogramviewdemo2', ':linechartdemo2', ':circleprogresswithbitmap', ':imagephotoshop',
+include ':app', ':sortlistviewdemo', ':histogramviewdemo', ':linechartdemo', ':histogramviewdemo2', ':linechartdemo2', ':circleprogresswithbitmap', ':imagephotoshop', ':flowlayout',
         ':strokecircle', ':switchbutton', ':guaguaka', 'canvaslayer'
