@@ -24,4 +24,16 @@ public class MainActivity extends AppCompatActivity {
     public void btPixelsEffect(View v){
         startActivity(new Intent(this,PixelsEffectActivity.class));
     }
+
+    public void btImageMatrix(View v){
+        startActivity(new Intent(this,ImageMatrixActivity.class));
+    }
+
+    public void btReflect(View v){
+        startActivity(new Intent(this,ReflectActivity.class));
+    }
+
+    public void btMesh(View v){
+        startActivity(new Intent(this,MeshActivity.class));
+    }
 }

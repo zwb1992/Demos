@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="40sp"
         android:layout_marginTop="20dp"
         android:text="美图" />
 
@@ -20,12 +20,14 @@
         android:layout_height="wrap_content"
         android:onClick="btPrimaryColor"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
         android:text="PrimaryColor"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textAllCaps="false"
         android:onClick="btColorMatrix"
         android:text="ColorMatrix"/>
 
@@ -34,5 +36,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="btPixelsEffect"
+        android:textAllCaps="false"
         android:text="PixelsEffect"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:onClick="btImageMatrix"
+        android:text="ImageMatrix"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:onClick="btReflect"
+        android:text="Reflect"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:onClick="btMesh"
+        android:text="Mesh"/>
 </LinearLayout>
