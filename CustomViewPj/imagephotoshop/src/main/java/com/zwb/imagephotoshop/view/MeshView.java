@@ -84,6 +84,6 @@ public class MeshView extends View {
         }
         K += 0.1f;
         canvas.drawBitmapMesh(mBitmap, WIDTH, HEIGHT, verts, 0, null, 0, null);
-        invalidate();
+//        invalidate();
     }
 }

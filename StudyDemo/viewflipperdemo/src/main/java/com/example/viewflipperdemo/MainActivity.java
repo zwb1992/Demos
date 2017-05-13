@@ -17,15 +17,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onPre(View view) {
+        fp.setInAnimation(this,R.anim.left_in);
+        fp.setOutAnimation(this,R.anim.right_out);
         fp.showPrevious();
     }
 
     public void onNext(View view) {
+        fp.setInAnimation(this,R.anim.right_in);
+        fp.setOutAnimation(this,R.anim.left_out);
         fp.showNext();
     }
 
     private int x, y;
-
+    private int state = 0;
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
@@ -37,14 +41,25 @@ public class MainActivity extends AppCompatActivity {
                 int fx = (int) event.getX() - x;
                 int fy = (int) event.getY() - y;
                 if (Math.abs(fx) > Math.abs(fy)) {
-                    if (Math.abs(fx) > 10 && fx > 0) {
-                        fp.showNext();
-                    } else if (Math.abs(fx) > 10 && fx < 0) {
-                        fp.showPrevious();
+                    if (Math.abs(fx) > 20 && fx < 0) {
+                        state = 1;
+                    } else if (Math.abs(fx) > 20 && fx > 0) {
+                        state = -1;
+                    }else {
+                        state = 0;
                     }
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                if(state == 1){
+                    fp.setInAnimation(this,R.anim.right_in);
+                    fp.setOutAnimation(this,R.anim.left_out);
+                    fp.showNext();
+                }else if(state == -1){
+                    fp.setInAnimation(this,R.anim.left_in);
+                    fp.setOutAnimation(this,R.anim.right_out);
+                    fp.showPrevious();
+                }
                 break;
         }
         return true;
