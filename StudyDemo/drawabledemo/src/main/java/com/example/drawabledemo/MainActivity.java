@@ -60,6 +60,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setRotate() {
         RotateDrawable rotateDrawable = (RotateDrawable) img_rotate.getDrawable();
-        rotateDrawable.setLevel(10000);
+        rotateDrawable.setLevel(2800);
     }
 }
