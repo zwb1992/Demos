@@ -1,5 +1,6 @@
 package com.example.zwb.recyclerviewdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,11 +11,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.zwb.recyclerviewdemo.mixture.MixtureLayoutActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * recyclerview 的Listview用法
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         for (int i =0;i<97;i++){
             list.add("test======"+i);
         }
+    }
+
+    @OnClick(R.id.bt_mixture)
+    public void onclick(View view){
+        startActivity(new Intent(this, MixtureLayoutActivity.class));
     }
 
 }
