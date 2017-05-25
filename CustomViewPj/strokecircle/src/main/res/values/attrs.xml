@@ -3,5 +3,6 @@
     <declare-styleable name="StrokeCircle">
         <attr name="sc_bg_color" format="color"/>
         <attr name="sc_shadow_color" format="color"/>
+        <attr name="sc_stroke_width" format="dimension"/>
     </declare-styleable>
 </resources>
