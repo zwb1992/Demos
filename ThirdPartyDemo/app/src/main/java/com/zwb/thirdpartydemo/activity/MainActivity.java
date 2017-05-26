@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initFragment(){
         baseFragments = new ArrayList<>();
         baseFragments.add(new CommonFragment());
-        baseFragments.add(new ThirdPartyFragment());
-        baseFragments.add(new CustomeFragment());
-        baseFragments.add(new OtherFragment());
+//        baseFragments.add(new ThirdPartyFragment());
+//        baseFragments.add(new CustomeFragment());
+//        baseFragments.add(new OtherFragment());
         current = 0;
         currentFragmnt = baseFragments.get(current);
         getSupportFragmentManager().beginTransaction().add(R.id.fl_fragment,currentFragmnt).commit();

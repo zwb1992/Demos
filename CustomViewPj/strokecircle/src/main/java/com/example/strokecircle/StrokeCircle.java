@@ -92,5 +92,6 @@ public class StrokeCircle extends View {
         mShadowPaint.setColor(shadowColor);
         mShadowPaint.setStyle(Paint.Style.FILL);
         mShadowPaint.setStrokeWidth(strokeWidth);
+        array.recycle();
     }
 }

@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+    repositories {
+        // You can also use jcenter if you prefer
+        mavenCentral()
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
     defaultConfig {
@@ -20,7 +24,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -29,4 +33,13 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'com.squareup.okio:okio:1.12.0'
     compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    // If you want to use the GPU Filters
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    compile 'com.linsea:universalvideoview:1.1.0@aar'
+    compile 'com.jakewharton:butterknife:8.4.0'
+
 }

@@ -21,7 +21,6 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="user" />
         <activity android:name=".activity.OkHttpActivity"></activity>
     </application>
