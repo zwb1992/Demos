@@ -2,6 +2,8 @@ package com.zwb.thirdpartydemo.fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +28,7 @@ public class CommonFragment extends BaseFragment {
 
     private ListView listView;
     private CommonAdapter adapter;
+
     @Override
     protected View initView() {
         Log.e(TAG,"==initView==视图被初始化======");
@@ -52,4 +55,14 @@ public class CommonFragment extends BaseFragment {
     }
 
     private static String[] strs = {"OkHttp","Xutils3","Retrofit2","Fresco","Glide","GreenDao","Rxjava","Volley","Json","RecycleView","PullToFresh","Picasso","EventBus"};
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+    }
 }
