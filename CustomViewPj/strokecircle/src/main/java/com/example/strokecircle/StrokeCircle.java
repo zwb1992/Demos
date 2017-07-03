@@ -75,7 +75,7 @@ public class StrokeCircle extends View {
                     shadowColor = array.getColor(attr, Color.GRAY);
                     break;
                 case R.styleable.StrokeCircle_sc_stroke_width:
-                    strokeWidth = array.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()));
+                    strokeWidth = array.getDimension(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()));
                     break;
             }
         }
