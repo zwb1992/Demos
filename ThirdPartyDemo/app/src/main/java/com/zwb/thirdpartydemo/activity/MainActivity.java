@@ -1,5 +1,8 @@
 package com.zwb.thirdpartydemo.activity;
 
+import android.content.res.Configuration;
+import android.net.Uri;
+import android.os.Environment;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +19,7 @@ import com.zwb.thirdpartydemo.fragment.CustomeFragment;
 import com.zwb.thirdpartydemo.fragment.OtherFragment;
 import com.zwb.thirdpartydemo.fragment.ThirdPartyFragment;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.e("info", "==onCreate=====" + savedInstanceState);
+        File file = new File(Environment.getExternalStorageDirectory(), "test.txt");
+        try {
+//            file.createNewFile();
+            Uri uri = Uri.fromFile(file);
+            Log.e("info", "==uri=====" + uri);
+            //file:///storage/emulated/0/test.txt
+        } catch (Exception e) {
+
+        }
         initView();
         baseFragments.clear();
         if (savedInstanceState != null) {
@@ -148,5 +161,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         Log.e("info", "==onDestroy=====");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("info", "==onStart=====");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e("info", "==onRestart=====");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("info", "==onResume=====");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e("info", "==onPause=====");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e("info", "==onStop=====");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.e("info", "==onConfigurationChanged=====");
     }
 }
