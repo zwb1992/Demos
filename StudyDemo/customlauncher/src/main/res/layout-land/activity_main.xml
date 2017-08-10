@@ -6,25 +6,31 @@
     android:layout_height="match_parent"
     android:background="#000"
     android:orientation="vertical"
+    android:paddingLeft="10dp"
     tools:context="com.zwb.customlauncher.MainActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:background="@color/gray"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:text="20:56"
                 android:textColor="#fff"
                 android:textSize="40sp"
@@ -33,7 +39,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:text="2017-7-19 周三"
                 android:textColor="#fff"
                 android:textSize="14sp" />
@@ -42,6 +47,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_margin="5dp"
             android:background="#fff" />
 
         <LinearLayout
@@ -51,9 +57,9 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/sun" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -64,7 +70,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="5dp"
                     android:text="多云"
                     android:textColor="#fff"
                     android:textSize="26sp" />
@@ -72,7 +78,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:text="19-16C"
                     android:textColor="#fff"
                     android:textSize="16sp" />
@@ -80,35 +85,63 @@
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/rl_info"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <LinearLayout
+        android:id="@+id/ll_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/rl_info"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/photo_no" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="NEWS"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTitle"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:text="林肯公园主唱自杀"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+        </RelativeLayout>
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="NEWS"
-            android:textColor="#fff" />
-
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvTitle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="林肯公园主唱自杀"
-            android:textColor="#fff" />
-    </RelativeLayout>
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/right" />
+    </LinearLayout>
 </LinearLayout>
