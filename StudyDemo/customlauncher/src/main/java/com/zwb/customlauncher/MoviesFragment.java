@@ -1,6 +1,7 @@
 package com.zwb.customlauncher;
 
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,9 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Constructor;
+
+import fm.jiecao.jcvideoplayer_lib.JCMediaManager;
 import fm.jiecao.jcvideoplayer_lib.JCUserActionStandard;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
@@ -41,13 +45,6 @@ public class MoviesFragment extends Fragment {
         JCVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
         JCVideoPlayer.TOOL_BAR_EXIST = false;
         JCVideoPlayer.ACTION_BAR_EXIST = false;
-        jcVideoPlayerStandard.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Log.e("info","=======视频触摸事件========");
-                return true;
-            }
-        });
         return view;
     }
 

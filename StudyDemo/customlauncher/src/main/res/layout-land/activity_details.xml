@@ -31,6 +31,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20:56"
@@ -39,6 +40,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvRiqi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2017-7-19 周三"
@@ -47,8 +49,9 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/imgTianqi"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/sun" />
 
             <LinearLayout
@@ -58,14 +61,16 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvWeatherState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:text="多云"
                     android:textColor="#fff"
-                    android:textSize="26sp" />
+                    android:textSize="22sp" />
 
                 <TextView
+                    android:id="@+id/tvWenDu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="19-16C"
@@ -142,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/gray" />
+                android:background="@color/black" />
         </LinearLayout>
 
         <ImageView
