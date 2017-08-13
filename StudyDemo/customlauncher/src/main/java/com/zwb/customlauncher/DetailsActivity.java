@@ -37,6 +37,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     private FragmentManager fragmentManager;
     private int index = 0;
     private String url;
+    private String imgUrl;
+    private String title;
+    private String time;
     private WeatherBean weatherBean;
     //天气控件
     private TextView tvWenDu, tvWeatherState, tvRiqi, tvTime;
@@ -54,6 +57,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         EventBus.getDefault().register(this);
 
         url = getIntent().getStringExtra("url");
+        imgUrl = getIntent().getStringExtra("imgUrl");
+        title = getIntent().getStringExtra("title");
+        time = getIntent().getStringExtra("time");
         weatherBean = (WeatherBean) getIntent().getSerializableExtra("weather");
 
         tvWenDu = (TextView) findViewById(R.id.tvWenDu);
@@ -172,6 +178,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                     newsFragment = new NewsFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("url", url);
+                    bundle.putString("title", title);
+                    bundle.putString("time", time);
+                    bundle.putString("imgUrl", imgUrl);
                     newsFragment.setArguments(bundle);
                     transaction.add(R.id.frameLayout, newsFragment);
                 } else {
@@ -221,17 +230,35 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 float dx = x - downX;
                 float dy = y - downY;
                 if (Math.abs(dx) > Math.abs(dy)) {
-                    if (dx < 0) {
+                    Log.e("info", "滑动的距离 x====" + dx);
+                    Log.e("info", "滑动的距离 y====" + dy);
+                    if (Math.abs(dx) >= 40) {//移动了40个像素才切换
+                        if (dx < 0) {
 //                        Toast.makeText(this,"向左滑动",Toast.LENGTH_SHORT).show();
-                        finish();
-                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                    } else {
-                        index++;
-                        if (index > 1) {
-                            index = 0;
-                        }
-                        setSelected(index);
+                            finish();
+                            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                        } else {
+                            index++;
+                            if (index > 1) {
+                                index = 0;
+                            }
+                            setSelected(index);
 //                        Toast.makeText(this,"向右滑动",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } else {//上下滑动
+                    Log.e("info", "滑动的距离 x====" + dx);
+                    Log.e("info", "滑动的距离 y====" + dy);
+                    if (Math.abs(dy) >= 40) {
+                        if (dy < 0) {//向上移动
+                            if (index == 1 && moviesFragment != null) {
+                                moviesFragment.pre();
+                            }
+                        } else {//向下移动
+                            if (index == 1 && moviesFragment != null) {
+                                moviesFragment.next();
+                            }
+                        }
                     }
                 }
                 break;
@@ -250,6 +277,14 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 index = 0;
             }
             setSelected(index);
+        } else if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+            if (index == 1 && moviesFragment != null) {
+                moviesFragment.pre();
+            }
+        } else if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
+            if (index == 1 && moviesFragment != null) {
+                moviesFragment.next();
+            }
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -276,4 +311,5 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         this.weatherBean = weatherBean;
         setWeather();
     }
+
 }

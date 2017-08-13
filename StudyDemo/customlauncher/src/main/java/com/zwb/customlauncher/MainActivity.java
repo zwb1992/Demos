@@ -32,6 +32,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout ll_info;
     private Animation animation;
     private OkHttpClient client;
-    private List<NewsBean.ResultBean.DataBean> news = new ArrayList<>();
+    private List<NewsBean.T1348647909107Bean> news = new ArrayList<>();
     public static final int NEWS = 1;
     public static final int WEATHER = 2;
     private int newIndex = 0;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgTianqi;
     private SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm");
     private SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private int coner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         tvRiqi = (TextView) findViewById(R.id.tvRiqi);
         tvTime = (TextView) findViewById(R.id.tvTime);
         imgTianqi = (ImageView) findViewById(R.id.imgTianqi);
+
+        coner = (int) (5 * getResources().getDisplayMetrics().density);
 
         registerReceiver(mTimeRefreshReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
         setTime();
@@ -156,8 +160,9 @@ public class MainActivity extends AppCompatActivity {
                 tvContent.setText("" + news.get(newIndex).getTitle());
             }
             Glide.with(MainActivity.this)
-                    .load(news.get(newIndex).getThumbnail_pic_s())
+                    .load(news.get(newIndex).getImgsrc())
                     .error(R.mipmap.photo_no)
+                    .bitmapTransform(new RoundedCornersTransformation(MainActivity.this, 5, 0, RoundedCornersTransformation.CornerType.ALL))
                     .into(imgNews);
             ll_info.startAnimation(animation);
             newIndex++;
@@ -202,12 +207,21 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 //                        Toast.makeText(this,"向右滑动",Toast.LENGTH_SHORT).show();
                         String url = null;
+                        String imgUrl = null;
+                        String title = null;
+                        String time = null;
                         if (!news.isEmpty()) {
                             int i = newIndex - 1;
                             i = i < 0 ? 0 : i;
-                            url = news.get(i).getUrl();
+                            url = news.get(i).getDocid();
+                            imgUrl = news.get(i).getImgsrc();
+                            title = news.get(i).getTitle();
+                            time = news.get(i).getLmodify();
                         }
                         Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                        intent.putExtra("title", title);
+                        intent.putExtra("time", time);
+                        intent.putExtra("imgUrl", imgUrl);
                         intent.putExtra("url", url);
                         intent.putExtra("weather", weatherBean);
                         startActivity(intent);
@@ -223,12 +237,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
             String url = null;
+            String imgUrl = null;
+            String title = null;
+            String time = null;
             if (!news.isEmpty()) {
                 int i = newIndex - 1;
                 i = i < 0 ? 0 : i;
-                url = news.get(i).getUrl();
+                url = news.get(i).getDocid();
+                imgUrl = news.get(i).getImgsrc();
+                title = news.get(i).getTitle();
+                time = news.get(i).getLmodify();
             }
             Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+            intent.putExtra("title", title);
+            intent.putExtra("time", time);
+            intent.putExtra("imgUrl", imgUrl);
             intent.putExtra("url", url);
             intent.putExtra("weather", weatherBean);
             startActivity(intent);
@@ -241,7 +264,8 @@ public class MainActivity extends AppCompatActivity {
      * 以异步的方式去请求数据
      */
     private void getNews() {
-        Request request = new Request.Builder().get().url(C.NEWS_API).build();
+        Request request = new Request.Builder().get().url(C.NEWS_API).addHeader("User-Agent", "Mozilla/4.0")
+                .build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
@@ -254,12 +278,13 @@ public class MainActivity extends AppCompatActivity {
             @Override // 这个方法在子线程
             public void onResponse(Call call, Response response) throws IOException {
                 final String result = response.body().string();
+                Log.e("info", "====new bean=====" + result);
                 try {
                     NewsBean newsBean = JSON.parseObject(result, NewsBean.class);
-                    if (newsBean != null && newsBean.getResult() != null &&
-                            newsBean.getResult().getData() != null && !newsBean.getResult().getData().isEmpty()) {
+                    if (newsBean != null && newsBean.getT1348647909107() != null && !newsBean.getT1348647909107().isEmpty()) {
                         news.clear();
-                        news.addAll(newsBean.getResult().getData());
+                        news.addAll(newsBean.getT1348647909107());
+                        news.remove(0);
                         handler.sendEmptyMessage(1);
                     }
                     Log.e("info", "====new bean=====" + newsBean);
@@ -277,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
             getNews();
-            handler.postDelayed(this, 1000 * 60 * 60 * 8);
+            handler.postDelayed(this, 1000 * 60 * 60);
         }
     };
 
@@ -295,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         getWeather();
                     }
-                }, 100 * 60);
+                }, 1000 * 60);
             }
 
             @Override

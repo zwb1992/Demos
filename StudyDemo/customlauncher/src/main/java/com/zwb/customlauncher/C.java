@@ -7,6 +7,10 @@ package com.zwb.customlauncher;
  */
 
 public interface C {
-    String NEWS_API = "http://v.juhe.cn/toutiao/index?type=top&key=97b1e856dcd6aba7d4a71ca482a17ee6";
+    //    String NEWS_API = "http://v.juhe.cn/toutiao/index?type=top&key=97b1e856dcd6aba7d4a71ca482a17ee6";
+    String NEWS_API = "http://c.m.163.com/nc/article/list/T1348647909107/0-60.html";
+    String NEWS_DETAILS_API = "http://c.m.163.com/nc/article/%s/full.html";
     String WEATHER_API = "http://v.juhe.cn/weather/index?format=2&cityname=%E6%B7%B1%E5%9C%B3&key=b2aff29f06d0c71e6472644a8413379d";
+//    String VIDEO_API = "http://c.m.163.com/recommend/getChanListNews?channel=T1457068979049&offset=0&size=20&devId=44t6%2B5mG3ACAOlQOCLuIHg%3D%3D";
+    String VIDEO_API = "http://c.m.163.com/nc/video/list/VAV3H6JSN/y/0-50.html";
 }
