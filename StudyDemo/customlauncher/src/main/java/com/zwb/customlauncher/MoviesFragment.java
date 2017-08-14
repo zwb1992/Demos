@@ -9,24 +9,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.zwb.customlauncher.bean.VideoBean;
-import com.zwb.customlauncher.bean.WeatherBean;
 
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import fm.jiecao.jcvideoplayer_lib.JCMediaManager;
-import fm.jiecao.jcvideoplayer_lib.JCUserActionStandard;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import okhttp3.Call;
@@ -60,6 +54,8 @@ public class MoviesFragment extends Fragment {
         JCVideoPlayer.NORMAL_ORIENTATION = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
         JCVideoPlayer.TOOL_BAR_EXIST = false;
         JCVideoPlayer.ACTION_BAR_EXIST = false;
+        jcVideoPlayerStandard.setUp("1"
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, " ");
         return view;
     }
 
@@ -95,24 +91,31 @@ public class MoviesFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.e("info", "====onDestroy=======");
+        if (videosCall != null) {
+            videosCall.cancel();
+        }
         handler.removeCallbacks(videoRunnable);
         handler = null;
-        if (jcVideoPlayerStandard != null) {
+        if (jcVideoPlayerStandard != null && !videos.isEmpty()) {
             jcVideoPlayerStandard.release();
         }
         jcVideoPlayerStandard = null;
     }
 
+    private Call videosCall;
+
     private void getVideo() {
         Request request = new Request.Builder().get().url(C.VIDEO_API).addHeader("User-Agent", "Mozilla/4.0").build();
-        Call call = new OkHttpClient().newCall(request);
-        call.enqueue(new Callback() {
+        videosCall = new OkHttpClient().newCall(request);
+        videosCall.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
-                handler.removeCallbacks(videoRunnable);
-                //失败之后隔一分钟尝试一次
-                handler.postDelayed(videoRunnable, 1000 * 60);
+                if (handler != null) {
+                    handler.removeCallbacks(videoRunnable);
+                    //失败之后隔一分钟尝试一次
+                    handler.postDelayed(videoRunnable, 1000 * 60);
+                }
             }
 
             @Override
@@ -129,8 +132,10 @@ public class MoviesFragment extends Fragment {
                     Log.e("info", "video-----" + videos);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    handler.removeCallbacks(videoRunnable);
-                    handler.postDelayed(videoRunnable, 1000 * 60);
+                    if (handler != null) {
+                        handler.removeCallbacks(videoRunnable);
+                        handler.postDelayed(videoRunnable, 1000 * 60);
+                    }
                 }
             }
         });
@@ -181,7 +186,7 @@ public class MoviesFragment extends Fragment {
             return;
         }
         index++;
-        index = index >= videos.size() ? videos.size() - 1 : index;
+        index = index >= videos.size() ? 0 : index;
         VideoBean.VAV3H6JSNBean vav3H6JSNBean = videos.get(index);
         jcVideoPlayerStandard.setUp(vav3H6JSNBean.getMp4_url()
                 , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "" + vav3H6JSNBean.getTitle());

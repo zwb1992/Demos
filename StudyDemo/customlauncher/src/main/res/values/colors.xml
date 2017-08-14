@@ -9,4 +9,6 @@
     <color name="gray1">#333333</color>
     <color name="green">#3f0</color>
     <color name="yellow">#b8d200</color>
+    <color name="border">#999997</color>
+    <color name="solid">#1d1d1d</color>
 </resources>

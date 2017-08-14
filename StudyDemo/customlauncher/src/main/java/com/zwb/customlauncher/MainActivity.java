@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -40,7 +41,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private LinearLayout ll_info;
+    private RelativeLayout rl_info;
     private Animation animation;
     private OkHttpClient client;
     private List<NewsBean.T1348647909107Bean> news = new ArrayList<>();
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         client = new OkHttpClient();
         animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.left_in);
-        ll_info = (LinearLayout) findViewById(R.id.ll_info);
+        rl_info = (RelativeLayout) findViewById(R.id.rl_info);
         imgNews = (ImageView) findViewById(R.id.img_news);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvContent = (TextView) findViewById(R.id.tvContent);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         tvTime = (TextView) findViewById(R.id.tvTime);
         imgTianqi = (ImageView) findViewById(R.id.imgTianqi);
 
-        coner = (int) (5 * getResources().getDisplayMetrics().density);
+        coner = (int) (3.8 * getResources().getDisplayMetrics().density);
 
         registerReceiver(mTimeRefreshReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
         setTime();
@@ -162,9 +163,9 @@ public class MainActivity extends AppCompatActivity {
             Glide.with(MainActivity.this)
                     .load(news.get(newIndex).getImgsrc())
                     .error(R.mipmap.photo_no)
-                    .bitmapTransform(new RoundedCornersTransformation(MainActivity.this, 5, 0, RoundedCornersTransformation.CornerType.ALL))
+                    .bitmapTransform(new RoundedCornersTransformation(MainActivity.this, coner, 0, RoundedCornersTransformation.CornerType.ALL))
                     .into(imgNews);
-            ll_info.startAnimation(animation);
+            rl_info.startAnimation(animation);
             newIndex++;
             handler.postDelayed(this, 5000);
         }
@@ -173,6 +174,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (newsCall != null) {
+            newsCall.cancel();
+        }
+        if (weatherCall != null) {
+            weatherCall.cancel();
+        }
         handler.removeCallbacks(getDataRunnable);
         handler.removeCallbacks(newsRunnable);
         unregisterReceiver(mTimeRefreshReceiver);
@@ -260,19 +267,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    private Call newsCall;
+
     /**
      * 以异步的方式去请求数据
      */
     private void getNews() {
         Request request = new Request.Builder().get().url(C.NEWS_API).addHeader("User-Agent", "Mozilla/4.0")
                 .build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
+        newsCall = client.newCall(request);
+        newsCall.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
-                handler.removeCallbacks(newsRunnable);
-                handler.postDelayed(newsRunnable, 60 * 1000);
+                if (handler != null) {
+                    handler.removeCallbacks(newsRunnable);
+                    handler.postDelayed(newsRunnable, 60 * 1000);
+                }
             }
 
             @Override // 这个方法在子线程
@@ -285,7 +296,9 @@ public class MainActivity extends AppCompatActivity {
                         news.clear();
                         news.addAll(newsBean.getT1348647909107());
                         news.remove(0);
-                        handler.sendEmptyMessage(1);
+                        if (handler != null) {
+                            handler.sendEmptyMessage(1);
+                        }
                     }
                     Log.e("info", "====new bean=====" + newsBean);
                 } catch (Exception e) {
@@ -305,16 +318,20 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(this, 1000 * 60 * 60);
         }
     };
+    private Call weatherCall;
 
     /**
      * 获取天气
      */
     private void getWeather() {
         Request request = new Request.Builder().get().url(C.WEATHER_API).build();
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
+        weatherCall = client.newCall(request);
+        weatherCall.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                if (handler == null) {
+                    return;
+                }
                 handler.postDelayed(new Runnable() {//失败之后隔一分钟尝试一次
                     @Override
                     public void run() {
@@ -328,7 +345,9 @@ public class MainActivity extends AppCompatActivity {
                 final String result = response.body().string();
                 try {
                     weatherBean = JSON.parseObject(result, WeatherBean.class);
-                    handler.sendEmptyMessage(2);
+                    if (handler != null) {
+                        handler.sendEmptyMessage(2);
+                    }
                     EventBus.getDefault().post(weatherBean);
                 } catch (Exception e) {
                     e.printStackTrace();

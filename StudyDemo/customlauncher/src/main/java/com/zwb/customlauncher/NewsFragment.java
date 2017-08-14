@@ -106,7 +106,7 @@ public class NewsFragment extends Fragment {
             mWebSettings.setBlockNetworkImage(true);
             //开启缓存机制
             mWebSettings.setAppCacheEnabled(true);
-            mWebSettings.setTextSize(WebSettings.TextSize.LARGER);
+            mWebSettings.setTextSize(WebSettings.TextSize.SMALLEST);
 
 
             getDetails(url);
@@ -115,18 +115,22 @@ public class NewsFragment extends Fragment {
         return view;
     }
 
+    private Call detailsCall;
+
     /**
      * 获取天气
      */
     private void getDetails(final String url) {
         String realUrl = String.format(C.NEWS_DETAILS_API, url);
         Request request = new Request.Builder().get().url(realUrl).build();
-        Call call = new OkHttpClient().newCall(request);
-        call.enqueue(new Callback() {
+        detailsCall = new OkHttpClient().newCall(request);
+        detailsCall.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
-                handler.postDelayed(runnable, 1000 * 60);
+                if (handler != null) {
+                    handler.postDelayed(runnable, 1000 * 60);
+                }
             }
 
             @Override
@@ -138,11 +142,15 @@ public class NewsFragment extends Fragment {
                     NewDetailsBean newDetailsBean = JSON.parseObject(object.toString(), NewDetailsBean.class);
                     if (newDetailsBean != null) {
                         body = newDetailsBean.getBody();
-                        handler.sendEmptyMessage(2);
+                        if (handler != null) {
+                            handler.sendEmptyMessage(2);
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    handler.postDelayed(runnable, 1000 * 60);
+                    if (handler != null) {
+                        handler.postDelayed(runnable, 1000 * 60);
+                    }
                 }
             }
         });
@@ -182,6 +190,9 @@ public class NewsFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (detailsCall != null) {
+            detailsCall.cancel();
+        }
         handler.removeCallbacks(runnable);
         handler = null;
     }
